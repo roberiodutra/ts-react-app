@@ -2,15 +2,14 @@ import axios from "axios";
 
 enum methods { get, post, put };
 
-async function request(path: string, method: keyof typeof methods) {
+async function request(path: string, method: keyof typeof methods, data: any) {
+  const { body, headers } = data;
   const instance = axios.create({
     baseURL: "http://localhost:3001",
-    headers: {
-      "Content-type": "application/json",
-    },
+    headers,
   });
 
-  const res = await instance[method](path);
+  const res = await instance[method](path, body);
   return res;
 }
 

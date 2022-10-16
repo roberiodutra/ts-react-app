@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import apiService from "../../services/api";
+import apiService from "../../services/apiService";
 import { QuestionType } from "../../types/QuestionType";
 import { PropsType } from "../../types/PropsType";
 import { UserContextType } from "../../types/UserContextType";
@@ -11,8 +11,7 @@ export function UserProvider({ children }: PropsType) {
 
   useEffect(() => {
     (async () => {
-      await apiService.getAll()
-        .then(({ data }) => setUsers(data));
+      // await apiService.getAll().then(({ data }) => setUsers(data));
     })();
   }, []);
 
