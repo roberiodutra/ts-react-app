@@ -2,10 +2,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../schemas/loginSchema";
 import { UserLoginType } from "../../types/UserLoginType";
+import { useNavigate } from 'react-router-dom';
 import apiService from "../../services/apiService";
-import Register from "./components/Register";
 
 export default function Login() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -24,24 +25,29 @@ export default function Login() {
         <h2>Log into your account.</h2>
 
         <input
+          type="email"
           {...register("email")}
           placeholder="email"
-          type="email"
           required
         />
         <p>{errors.email?.message}</p>
 
         <input
+          type="password"
           {...register("password")}
           placeholder="password"
-          type="password"
           required
         />
         <p>{errors.password?.message}</p>
 
         <button type="submit">Sign in</button>
       </form>
-      <Register />
+      <button
+          type="button"
+          onClick={ () => navigate('/sign_up') }
+        >
+          Não tem uma conta? Cadastre-se
+        </button>
     </>
   );
 }

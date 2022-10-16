@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { UserRegisterType } from "../../../types/UserRegisterType";
-import { registerSchema } from "../../../schemas/registerSchema";
+import { UserRegisterType } from "../../types/UserRegisterType";
+import { registerSchema } from "../../schemas/registerSchema";
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -77,6 +79,10 @@ export default function Register() {
           </button>
         </div>
       </form>
+
+      <button type="button" onClick={ () => navigate('/sign_in') }>
+        Tem uma conta? Conecte-se
+      </button>
     </div>
   );
 }
