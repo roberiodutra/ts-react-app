@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { UserRegisterType } from "../../types/UserRegisterType";
 import { registerSchema } from "../../schemas/registerSchema";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -24,8 +24,8 @@ export default function Register() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input
-            {...register("firstName")}
             type="text"
+            {...register("firstName")}
             placeholder="first name"
             required
           />
@@ -34,8 +34,8 @@ export default function Register() {
 
         <div>
           <input
-            {...register("lastName")}
             type="text"
+            {...register("lastName")}
             placeholder="last name"
             required
           />
@@ -44,8 +44,8 @@ export default function Register() {
 
         <div>
           <input
-            {...register("email")}
             type="text"
+            {...register("email")}
             placeholder="email"
             required
           />
@@ -54,8 +54,8 @@ export default function Register() {
 
         <div>
           <input
-            {...register("password")}
             type="password"
+            {...register("password")}
             placeholder="password"
             required
           />
@@ -64,8 +64,8 @@ export default function Register() {
 
         <div>
           <input
-            {...register("confirmPassword")}
             type="password"
+            {...register("confirmPassword")}
             placeholder="confirm password"
             required
           />
@@ -80,8 +80,10 @@ export default function Register() {
         </div>
       </form>
 
-      <button type="button" onClick={ () => navigate('/sign_in') }>
-        Tem uma conta? Conecte-se
+      <p>Tem uma conta?</p>
+
+      <button type="button" onClick={() => navigate("/sign_in")}>
+        Conecte-se
       </button>
     </div>
   );

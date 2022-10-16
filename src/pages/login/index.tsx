@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../schemas/loginSchema";
 import { UserLoginType } from "../../types/UserLoginType";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import apiService from "../../services/apiService";
 
 export default function Login() {
@@ -42,12 +42,12 @@ export default function Login() {
 
         <button type="submit">Sign in</button>
       </form>
-      <button
-          type="button"
-          onClick={ () => navigate('/sign_up') }
-        >
-          Não tem uma conta? Cadastre-se
-        </button>
+
+      <p>Não tem uma conta?</p>
+
+      <button type="button" onClick={() => navigate("/sign_up")}>
+        Cadastre-se
+      </button>
     </>
   );
 }
