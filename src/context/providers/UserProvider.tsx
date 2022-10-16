@@ -1,30 +1,26 @@
-import { createContext, useContext, useMemo, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import apiService from "../../services/api";
+import { QuestionType } from "../../types/QuestionType";
+import { PropsType } from "../../types/PropsType";
+import { UserContextType } from "../../types/UserContextType";
 
-const UserContext = createContext([] as unknown);
+const UserContext = createContext<UserContextType | []>([]);
 
-type userProps = {
-  children: React.ReactNode;
-};
-
-export function UserProvider({ children }: userProps) {
-  const [users, setUsers] = useState([]);
+export function UserProvider({ children }: PropsType) {
+  const [users, setUsers] = useState<QuestionType[]>([]);
 
   useEffect(() => {
-    if (users) {
-      (async () => {
-        <></>;
-      })();
-    }
+    (async () => {
+      await apiService.getAll()
+        .then(({ data }) => setUsers(data));
+    })();
   }, []);
 
-  const value = useMemo(
-    () => ({
-      users,
-    }),
-    [users]
-  );
+  const value = {
+    users,
+  };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
 
-export const useUsers = () => useContext(UserContext);
+export const useUsers = () => useContext(UserContext) as UserContextType;
