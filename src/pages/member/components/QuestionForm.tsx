@@ -20,7 +20,6 @@ export default function QuestionForm() {
   });
 
   const onSubmit = async (data: QuestionType) => {
-    console.log('🚀 ~ onSubmit ~ status', user?.id);
     await apiService.registerQuestion({
       ...data,
       userId: user?.id,
@@ -37,7 +36,7 @@ export default function QuestionForm() {
           <input
             type="text"
             { ...register('question') }
-            placeholder="Write the question"
+            placeholder="Write a question"
             required
           />
           <div>{errors.question?.message}</div>
