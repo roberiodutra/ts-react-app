@@ -1,14 +1,13 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import apiService from "../../services/apiService";
-import { QuestionType } from "../../types/QuestionType";
 import { PropsType } from "../../types/PropsType";
 import { UserContextType } from "../../types/UserContextType";
-import { UserLoginType } from "../../types/UserLoginType";
+import { LocalUserType } from "../../types/LocalUserType";
 
 const UserContext = createContext<UserContextType | null>(null);
 
 export function UserProvider({ children }: PropsType) {
-  const [user, setUser] = useState<UserLoginType | null>(null);
+  const [user, setUser] = useState<LocalUserType | null>(null);
 
   useEffect(() => {
     (async () => {

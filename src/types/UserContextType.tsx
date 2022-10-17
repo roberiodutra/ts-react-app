@@ -1,7 +1,7 @@
 import { SetStateAction } from "react";
-import { UserLoginType } from "./UserLoginType";
+import { LocalUserType } from "./LocalUserType";
 
 export type UserContextType = {
-  user: UserLoginType | null;
-  setUser: React.Dispatch<SetStateAction<UserLoginType | null>>;
+  user: LocalUserType | null;
+  setUser: React.Dispatch<SetStateAction<LocalUserType | null>>;
 };

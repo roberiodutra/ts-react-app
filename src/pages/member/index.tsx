@@ -1,7 +1,9 @@
+import QuestionForm from "./components/QuestionForm";
+
 export default function Member() {
   return (
     <main>
-      <p>Member</p>
+      <QuestionForm />
     </main>
   );
 }
