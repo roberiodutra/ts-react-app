@@ -22,6 +22,10 @@ class ApiService {
     });
   }
 
+  public async getAllQuestions() {
+    return await request('/questions', 'get', {});
+  }
+
   public async getAllUsers() {
     return await request('/user', 'get', {});
   }

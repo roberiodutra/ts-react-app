@@ -1,15 +1,15 @@
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import { UserProvider } from './context/providers/UserProvider';
+import ContextProvider from './context/ContextProvider';
 import Routes from './routes/';
 
 function App() {
   return (
-    <UserProvider>
+    <ContextProvider>
       <BrowserRouter>
         <Routes />
       </BrowserRouter>
-    </UserProvider>
+    </ContextProvider>
   );
 }
 

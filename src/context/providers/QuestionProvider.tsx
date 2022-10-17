@@ -1,18 +1,18 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import apiService from "../../services/apiService";
 import { QuestionType } from "../../types/QuestionType";
 import { PropsType } from "../../types/PropsType";
-import { UserContextType } from "../../types/UserContextType";
 import { QuestionContextType } from "../../types/QuestionContextType";
+import apiService from "../../services/apiService";
 
 const QuestionContext = createContext<QuestionContextType | null>(null);
 
 export function QuestionProvider({ children }: PropsType) {
-  const [questions, setQuestions] = useState<QuestionType[] | null>([]);
+  const [questions, setQuestions] = useState<QuestionType[]>([]);
 
   useEffect(() => {
     (async () => {
-      // await apiService.getAll().then(({ data }) => setUsers(data));
+      await apiService.getAllQuestions()
+        .then(({ data }) => setQuestions(data));
     })();
   }, []);
 
