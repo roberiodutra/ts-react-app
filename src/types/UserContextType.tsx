@@ -1,5 +1,7 @@
-import { QuestionType } from "./QuestionType";
+import { SetStateAction } from "react";
+import { UserLoginType } from "./UserLoginType";
 
 export type UserContextType = {
-  users: QuestionType[],
+  user: UserLoginType | null;
+  setUser: React.Dispatch<SetStateAction<UserLoginType | null>>;
 };

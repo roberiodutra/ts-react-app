@@ -3,10 +3,20 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../schemas/loginSchema";
 import { UserLoginType } from "../../types/UserLoginType";
 import { useNavigate } from "react-router-dom";
+import { useUsers } from "../../context/providers/UserProvider";
+import { useEffect, useState } from "react";
+import { saveUser, getUser } from "../../utils/localStorage";
+import { UserRoleType } from "../../types/UserRoleType";
 import apiService from "../../services/apiService";
 
 export default function Login() {
+  const [errLogin, setErrLogin] = useState('');
+  const redirectOptions = {
+    admin: '/admin',
+    member: '/member',
+  };
   const navigate = useNavigate();
+  const { setUser } = useUsers();
   const {
     register,
     handleSubmit,
@@ -15,12 +25,33 @@ export default function Login() {
   } = useForm<UserLoginType>({
     resolver: yupResolver(loginSchema),
   });
-  const onSubmitHandler = (data: UserLoginType) => {
-    console.log({ data });
+
+  useEffect(() => {
+    const localUser = getUser();
+    if (localUser) {
+      (() => {
+        setUser({ ...localUser });
+        const { role } = localUser;
+        navigate(redirectOptions[role as keyof UserRoleType]);
+      })();
+    }
+  }, [navigate, setUser]);
+
+  const onSubmitHandler = async (data: UserLoginType) => {
+    await apiService.signIN(data)
+      .then(({ data }) => {
+        const { role } = data;
+        setUser(data);
+        saveUser(data);
+        navigate(redirectOptions[role as keyof UserRoleType]);
+      })
+      .catch((_e) => {
+        setErrLogin('User not found');
+      });
     reset();
   };
   return (
-    <>
+    <main>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <h2>Log into your account.</h2>
 
@@ -30,7 +61,7 @@ export default function Login() {
           placeholder="email"
           required
         />
-        <p>{errors.email?.message}</p>
+        <p>{errLogin || errors.email?.message}</p>
 
         <input
           type="password"
@@ -48,6 +79,6 @@ export default function Login() {
       <button type="button" onClick={() => navigate("/sign_up")}>
         Cadastre-se
       </button>
-    </>
+    </main>
   );
 }

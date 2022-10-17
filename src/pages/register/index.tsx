@@ -20,7 +20,7 @@ export default function Register() {
   };
 
   return (
-    <div>
+    <main>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input
@@ -85,6 +85,6 @@ export default function Register() {
       <button type="button" onClick={() => navigate("/sign_in")}>
         Conecte-se
       </button>
-    </div>
+    </main>
   );
 }
