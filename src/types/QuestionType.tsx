@@ -1,6 +1,6 @@
 export type QuestionType = {
-  userId: string,
+  userId?: string,
   question: string,
   answer: string,
-  status: string,
+  status?: string,
 };
