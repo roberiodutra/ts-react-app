@@ -27,6 +27,10 @@ class ApiService {
     return await request('/questions', 'get', {});
   }
 
+  public async getQuestionById(id: string) {
+    return await request(`/questions/${id}`, 'get', {});
+  }
+
   public async updateQuestion(id: string, data: QuestionStatusType) {
     return await request(`/questions/${id}`, 'put', {
       body: data,

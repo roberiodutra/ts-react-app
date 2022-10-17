@@ -22,6 +22,10 @@ function Routes() {
       path: '/admin',
       element: <Admin />,
     },
+    {
+      path: '/question/:id',
+      element: <Admin />,
+    },
   ]);
 
   return routes;
