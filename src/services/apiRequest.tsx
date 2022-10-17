@@ -1,8 +1,22 @@
-import axios from "axios";
+import axios, { AxiosRequestHeaders } from "axios";
+import { QuestionType } from "../types/QuestionType";
+import { UserLoginType } from "../types/UserLoginType";
+import { UserRegisterType } from "../types/UserRegisterType";
 
-enum methods { get, post, put };
+enum methods {
+  get,
+  post,
+  put,
+}
 
-async function request(path: string, method: keyof typeof methods, data: any) {
+async function request(
+  path: string,
+  method: keyof typeof methods,
+  data: {
+    body?: UserLoginType | UserRegisterType | QuestionType;
+    headers?: AxiosRequestHeaders;
+  }
+) {
   const { body, headers } = data;
   const instance = axios.create({
     baseURL: "http://localhost:3001",
