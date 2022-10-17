@@ -1,10 +1,10 @@
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useUsers } from '../../../context/providers/UserProvider';
-import { questionSchema } from '../../../schemas/questionSchema';
-import { QuestionType } from '../../../types/QuestionType';
-import { useQuestions } from '../../../context/providers/QuestionProvider';
-import apiService from '../../../services/apiService';
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useUsers } from "../../../context/providers/UserProvider";
+import { questionSchema } from "../../../schemas/questionSchema";
+import { QuestionType } from "../../../types/QuestionType";
+import { useQuestions } from "../../../context/providers/QuestionProvider";
+import apiService from "../../../services/apiService";
 
 export default function QuestionForm() {
   const { user } = useUsers();
@@ -23,19 +23,19 @@ export default function QuestionForm() {
     apiService.registerQuestion({
       ...data,
       userId: user?.id,
-      status: 'pending',
+      status: "pending",
     });
     reset();
   };
 
   return (
     <div>
-      <form onSubmit={ handleSubmit(onSubmit) }>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="question">
           Question
           <input
             type="text"
-            { ...register('question') }
+            {...register("question")}
             placeholder="Write a question"
             required
           />
@@ -45,16 +45,13 @@ export default function QuestionForm() {
           Answer
           <input
             type="text"
-            { ...register('answer') }
+            {...register("answer")}
             placeholder="Answer URL"
             required
           />
           <div>{errors.answer?.message}</div>
         </label>
-        <button
-          type="submit"
-          onClick={ () => setRefresh(true) }
-        >
+        <button type="submit" onClick={() => setRefresh(true)}>
           Send
         </button>
       </form>

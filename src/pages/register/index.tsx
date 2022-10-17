@@ -9,7 +9,7 @@ import { useState } from "react";
 import apiService from "../../services/apiService";
 
 export default function Register() {
-  const [errRegister, setErrRegister] = useState('');
+  const [errRegister, setErrRegister] = useState("");
   const navigate = useNavigate();
   const { setUser } = useUsers();
   const {
@@ -23,14 +23,15 @@ export default function Register() {
 
   const onSubmit = (data: UserRegisterType) => {
     const { confirmPassword, ...rest } = data;
-    apiService.signUP({ ...rest, role: 'member' })
+    apiService
+      .signUP({ ...rest, role: "member" })
       .then(({ data }) => {
         setUser(data);
         saveUser(data);
-        navigate('/member');
+        navigate("/member");
       })
       .catch((_e) => {
-        setErrRegister('User already exists');
+        setErrRegister("User already exists");
       });
   };
 

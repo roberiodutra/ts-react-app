@@ -10,10 +10,10 @@ import { UserRoleType } from "../../types/UserRoleType";
 import apiService from "../../services/apiService";
 
 export default function Login() {
-  const [errLogin, setErrLogin] = useState('');
+  const [errLogin, setErrLogin] = useState("");
   const redirectOptions = {
-    admin: '/admin',
-    member: '/member',
+    admin: "/admin",
+    member: "/member",
   };
   const navigate = useNavigate();
   const { setUser } = useUsers();
@@ -38,7 +38,8 @@ export default function Login() {
   }, [navigate, setUser]);
 
   const onSubmitHandler = (data: UserLoginType) => {
-    apiService.signIN(data)
+    apiService
+      .signIN(data)
       .then(({ data }) => {
         const { role } = data;
         setUser(data);
@@ -46,7 +47,7 @@ export default function Login() {
         navigate(redirectOptions[role as keyof UserRoleType]);
       })
       .catch((_e) => {
-        setErrLogin('User not found');
+        setErrLogin("User not found");
       });
     reset();
   };

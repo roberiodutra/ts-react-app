@@ -4,5 +4,5 @@ export type UserRegisterType = {
   email: string;
   password: string;
   confirmPassword?: string;
-  role?: string,
+  role?: string;
 };

@@ -41,10 +41,7 @@ export default function QuestionCard({
         </button>
       )}
       <button type="button">Edit</button>
-      <button
-        type="button"
-        onClick={() => deleteQ(_id)}
-      >
+      <button type="button" onClick={() => deleteQ(_id)}>
         Delete
       </button>
     </div>
