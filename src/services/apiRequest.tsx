@@ -8,6 +8,7 @@ enum methods {
   get,
   post,
   put,
+  delete,
 }
 
 async function request(

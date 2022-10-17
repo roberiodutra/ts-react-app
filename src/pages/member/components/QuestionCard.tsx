@@ -11,7 +11,7 @@ export default function QuestionCard({
 }: dataType) {
   const [admin, setAdmin] = useState(false);
   const { user } = useUsers();
-  const { publishQ } = useQuestions();
+  const { publishQ, deleteQ } = useQuestions();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,7 +41,12 @@ export default function QuestionCard({
         </button>
       )}
       <button type="button">Edit</button>
-      <button type="button">Delete</button>
+      <button
+        type="button"
+        onClick={() => deleteQ(_id)}
+      >
+        Delete
+      </button>
     </div>
   );
 }

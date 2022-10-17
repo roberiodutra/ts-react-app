@@ -33,6 +33,10 @@ class ApiService {
     });
   }
 
+  public async deleteQuestion(id: string) {
+    return await request(`/questions/${id}`, 'delete', {});
+  }
+
   public async getAllUsers() {
     return await request('/user', 'get', {});
   }

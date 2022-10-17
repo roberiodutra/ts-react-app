@@ -29,11 +29,17 @@ export function QuestionProvider({ children }: PropsType) {
     setRefresh(true);
   }, []);
 
+  const deleteQ = useCallback(async (id: string) => {
+    await apiService.deleteQuestion(id);
+    setRefresh(true);
+  }, []);
+
   const value = {
     questions,
     setQuestions,
     setRefresh,
     publishQ,
+    deleteQ,
   };
 
   return (
