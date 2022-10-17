@@ -26,6 +26,7 @@ export function QuestionProvider({ children }: PropsType) {
 
   const publishQ = useCallback(async (id: string, data: QuestionStatusType) => {
     await apiService.updateQuestion(id, data);
+    setRefresh(true);
   }, []);
 
   const value = {

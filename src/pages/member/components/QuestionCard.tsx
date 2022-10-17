@@ -7,7 +7,7 @@ import { useQuestions } from "../../../context/providers/QuestionProvider";
 import apiService from "../../../services/apiService";
 
 export default function QuestionCard({
-  data: { question, status, id },
+  data: { question, status, _id },
 }: dataType) {
   const [admin, setAdmin] = useState(false);
   const { user } = useUsers();
@@ -22,7 +22,7 @@ export default function QuestionCard({
             removeUser();
             navigate("/sign_in");
           }
-          if (data.role === "admin") setAdmin(true);
+          data.role === "admin" ? setAdmin(true) : navigate("/member");
         });
       }
     })();
@@ -35,7 +35,7 @@ export default function QuestionCard({
         <button
           type="button"
           disabled={status !== "pending"}
-          onClick={() => publishQ(id, { status: "published" })}
+          onClick={() => publishQ(_id, { status: "published" })}
         >
           Publish
         </button>
