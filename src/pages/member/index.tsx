@@ -9,7 +9,6 @@ export default function Member() {
       {questions?.map((Q, I) => (
         <div key={I}>
           <div>{Q.question}</div>
-          <div>{Q.answer}</div>
         </div>
       ))}
     </main>

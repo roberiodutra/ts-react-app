@@ -1,5 +1,5 @@
 import { useRoutes } from 'react-router-dom';
-import Header from '../components/test';
+import Admin from '../pages/admin';
 import Login from '../pages/login';
 import Member from '../pages/member';
 import Register from '../pages/register';
@@ -19,8 +19,8 @@ function Routes() {
       element: <Member />,
     },
     {
-      path: '/questions',
-      element: <Header />,
+      path: '/admin',
+      element: <Admin />,
     },
   ]);
 
