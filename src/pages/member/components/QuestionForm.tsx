@@ -3,12 +3,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useUsers } from '../../../context/providers/UserProvider';
 import { questionSchema } from '../../../schemas/questionSchema';
 import { QuestionType } from '../../../types/QuestionType';
+import { useQuestions } from '../../../context/providers/QuestionProvider';
 import apiService from '../../../services/apiService';
-import { useState } from 'react';
 
 export default function QuestionForm() {
-  const [refresh, setRefresh] = useState(false);
   const { user } = useUsers();
+  const { setRefresh } = useQuestions();
 
   const {
     register,
@@ -20,6 +20,7 @@ export default function QuestionForm() {
   });
 
   const onSubmit = async (data: QuestionType) => {
+    console.log('🚀 ~ onSubmit ~ status', user?.id);
     await apiService.registerQuestion({
       ...data,
       userId: user?.id,
@@ -53,7 +54,7 @@ export default function QuestionForm() {
         </label>
         <button
           type="submit"
-          // onClick={ () => setRefresh(true) }
+          onClick={ () => setRefresh(true) }
         >
           Send
         </button>
