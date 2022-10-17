@@ -3,9 +3,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { UserRegisterType } from "../../types/UserRegisterType";
 import { registerSchema } from "../../schemas/registerSchema";
 import { useNavigate } from "react-router-dom";
+import { saveUser } from "../../utils/localStorage";
+import { useUsers } from "../../context/providers/UserProvider";
+import { useState } from "react";
+import apiService from "../../services/apiService";
 
 export default function Register() {
+  const [errRegister, setErrRegister] = useState('');
   const navigate = useNavigate();
+  const { setUser } = useUsers();
   const {
     register,
     handleSubmit,
@@ -15,8 +21,17 @@ export default function Register() {
     resolver: yupResolver(registerSchema),
   });
 
-  const onSubmit = (data: UserRegisterType) => {
-    console.log(data);
+  const onSubmit = async (data: UserRegisterType) => {
+    const { confirmPassword, ...rest } = data;
+    await apiService.signUP({ ...rest, role: 'member' })
+      .then(({ data }) => {
+        setUser(data);
+        saveUser(data);
+        navigate('/member');
+      })
+      .catch((_e) => {
+        setErrRegister('User already exists');
+      });
   };
 
   return (
@@ -49,7 +64,7 @@ export default function Register() {
             placeholder="email"
             required
           />
-          <div>{errors.email?.message}</div>
+          <div>{errRegister || errors.email?.message}</div>
         </div>
 
         <div>
