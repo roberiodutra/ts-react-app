@@ -15,9 +15,9 @@ export default function QuestionCard({
   const navigate = useNavigate();
 
   useEffect(() => {
-    (async () => {
+    (() => {
       if (user) {
-        await apiService.getUserById(user.id).then(({ data }) => {
+        apiService.getUserById(user.id).then(({ data }) => {
           if (user.email !== data.email || user.role !== data.role) {
             removeUser();
             navigate("/sign_in");

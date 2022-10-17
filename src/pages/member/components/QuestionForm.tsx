@@ -19,8 +19,8 @@ export default function QuestionForm() {
     resolver: yupResolver(questionSchema),
   });
 
-  const onSubmit = async (data: QuestionType) => {
-    await apiService.registerQuestion({
+  const onSubmit = (data: QuestionType) => {
+    apiService.registerQuestion({
       ...data,
       userId: user?.id,
       status: 'pending',

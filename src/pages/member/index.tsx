@@ -10,7 +10,7 @@ export default function Member() {
     <main>
       <QuestionForm />
       {questions
-        ?.filter((e) => e.status === "published" && e.userId === user?.id)
+        ?.filter((e) => e.userId === user?.id)
         .map((Q, I) => (
           <QuestionCard key={I} data={Q} />
         ))}

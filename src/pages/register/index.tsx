@@ -21,9 +21,9 @@ export default function Register() {
     resolver: yupResolver(registerSchema),
   });
 
-  const onSubmit = async (data: UserRegisterType) => {
+  const onSubmit = (data: UserRegisterType) => {
     const { confirmPassword, ...rest } = data;
-    await apiService.signUP({ ...rest, role: 'member' })
+    apiService.signUP({ ...rest, role: 'member' })
       .then(({ data }) => {
         setUser(data);
         saveUser(data);

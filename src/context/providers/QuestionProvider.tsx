@@ -18,8 +18,8 @@ export function QuestionProvider({ children }: PropsType) {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    (async () => {
-      await apiService.getAllQuestions().then(({ data }) => setQuestions(data));
+    (() => {
+      apiService.getAllQuestions().then(({ data }) => setQuestions(data));
       setRefresh(false);
     })();
   }, [refresh]);

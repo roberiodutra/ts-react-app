@@ -37,8 +37,8 @@ export default function Login() {
     }
   }, [navigate, setUser]);
 
-  const onSubmitHandler = async (data: UserLoginType) => {
-    await apiService.signIN(data)
+  const onSubmitHandler = (data: UserLoginType) => {
+    apiService.signIN(data)
       .then(({ data }) => {
         const { role } = data;
         setUser(data);
