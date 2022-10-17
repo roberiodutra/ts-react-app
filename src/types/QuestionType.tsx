@@ -1,5 +1,5 @@
 export type QuestionType = {
-  id?: string,
+  id: string,
   userId?: string,
   question: string,
   answer: string,

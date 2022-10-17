@@ -1,3 +1,4 @@
+import { QuestionStatusType } from '../types/QuestionStatusType';
 import { QuestionType } from '../types/QuestionType';
 import { UserLoginType } from '../types/UserLoginType';
 import { UserRegisterType } from '../types/UserRegisterType';
@@ -26,8 +27,18 @@ class ApiService {
     return await request('/questions', 'get', {});
   }
 
+  public async updateQuestion(id: string, data: QuestionStatusType) {
+    return await request(`/questions/${id}`, 'put', {
+      body: data,
+    });
+  }
+
   public async getAllUsers() {
     return await request('/user', 'get', {});
+  }
+
+  public async getUserById(id: string) {
+    return await request(`/user/${id}`, 'get', {});
   }
 }
 

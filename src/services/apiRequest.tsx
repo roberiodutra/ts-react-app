@@ -1,4 +1,5 @@
 import axios, { AxiosRequestHeaders } from "axios";
+import { QuestionStatusType } from "../types/QuestionStatusType";
 import { QuestionType } from "../types/QuestionType";
 import { UserLoginType } from "../types/UserLoginType";
 import { UserRegisterType } from "../types/UserRegisterType";
@@ -13,7 +14,7 @@ async function request(
   path: string,
   method: keyof typeof methods,
   data: {
-    body?: UserLoginType | UserRegisterType | QuestionType;
+    body?: UserLoginType | UserRegisterType | QuestionType | QuestionStatusType;
     headers?: AxiosRequestHeaders;
   }
 ) {
