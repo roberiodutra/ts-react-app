@@ -7,6 +7,7 @@ import { QuestionType } from "../../types/QuestionType";
 import { useQuestions } from "../../context/providers/QuestionProvider";
 import apiService from "../../services/apiService";
 import { useEffect, useState } from "react";
+import Header from "../../components/Header";
 
 export default function Question() {
   const [isOwner, setOwner] = useState(false);
@@ -46,6 +47,7 @@ export default function Question() {
 
   return (
     <div>
+      <Header />
       {isOwner && (
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="question">

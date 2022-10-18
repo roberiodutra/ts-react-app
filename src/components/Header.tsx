@@ -8,9 +8,10 @@ export default function Header() {
   const location = useLocation();
   const navOptions = { admin: "/admin", member: "/member" };
   const role = user?.role as keyof typeof navOptions;
+  const path = location.pathname;
 
   const navHome = () => {
-    if (location.pathname === navOptions[role]) {
+    if (path === navOptions[role]) {
       return (
         <div>
           <button type="button" onClick={() => navigate("/")}>
@@ -32,7 +33,7 @@ export default function Header() {
   };
 
   const navMemberArea = () => {
-    if (location.pathname === "/") {
+    if (path === "/" || path.includes('question')) {
       return (
         <button type="button" onClick={() => navigate(navOptions[role])}>
           Member Area
