@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import Admin from "../pages/admin";
 import Login from "../pages/login";
 import Member from "../pages/member";
+import Question from "../pages/question";
 import Register from "../pages/register";
 
 function Routes() {
@@ -24,7 +25,7 @@ function Routes() {
     },
     {
       path: "/question/:id",
-      element: <Admin />,
+      element: <Question />,
     },
   ]);
 

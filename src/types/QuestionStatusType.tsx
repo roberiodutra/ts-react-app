@@ -1,3 +1,3 @@
-export type QuestionStatusType = {
+export interface QuestionStatusType {
   status: string;
 };

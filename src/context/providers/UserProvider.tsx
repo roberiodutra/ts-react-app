@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import apiService from "../../services/apiService";
 import { PropsType } from "../../types/PropsType";
 import { UserContextType } from "../../types/UserContextType";
 import { LocalUserType } from "../../types/LocalUserType";
@@ -11,7 +10,7 @@ export function UserProvider({ children }: PropsType) {
   const [user, setUser] = useState<LocalUserType | null>(null);
 
   useEffect(() => {
-    (() => {
+    (async () => {
       const localUser = getUser();
       if (localUser) {
         setUser({ ...localUser });

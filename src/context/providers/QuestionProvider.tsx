@@ -10,6 +10,7 @@ import { PropsType } from "../../types/PropsType";
 import { QuestionContextType } from "../../types/QuestionContextType";
 import apiService from "../../services/apiService";
 import { QuestionStatusType } from "../../types/QuestionStatusType";
+import { IQuestionQ } from "../../types/IQuestionQ";
 
 const QuestionContext = createContext<QuestionContextType | null>(null);
 
@@ -24,10 +25,13 @@ export function QuestionProvider({ children }: PropsType) {
     })();
   }, [refresh]);
 
-  const publishQ = useCallback(async (id: string, data: QuestionStatusType) => {
-    await apiService.updateQuestion(id, data);
-    setRefresh(true);
-  }, []);
+  const updateQ = useCallback(
+    async (id: string, data: QuestionStatusType | IQuestionQ) => {
+      await apiService.updateQuestion(id, data);
+      setRefresh(true);
+    },
+    []
+  );
 
   const deleteQ = useCallback(async (id: string) => {
     await apiService.deleteQuestion(id);
@@ -38,7 +42,7 @@ export function QuestionProvider({ children }: PropsType) {
     questions,
     setQuestions,
     setRefresh,
-    publishQ,
+    updateQ,
     deleteQ,
   };
 

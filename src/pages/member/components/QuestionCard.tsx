@@ -40,7 +40,9 @@ export default function QuestionCard({
           Publish
         </button>
       )}
-      <button type="button">Edit</button>
+      <button type="button" onClick={() => navigate(`/question/${_id}`)}>
+        Edit
+      </button>
       <button type="button" onClick={() => deleteQ(_id)}>
         Delete
       </button>

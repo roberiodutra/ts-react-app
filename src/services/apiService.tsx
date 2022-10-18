@@ -1,3 +1,4 @@
+import { IQuestionQ } from "../types/IQuestionQ";
 import { QuestionStatusType } from "../types/QuestionStatusType";
 import { QuestionType } from "../types/QuestionType";
 import { UserLoginType } from "../types/UserLoginType";
@@ -31,7 +32,10 @@ class ApiService {
     return await request(`/questions/${id}`, "get", {});
   }
 
-  public async updateQuestion(id: string, data: QuestionStatusType) {
+  public async updateQuestion(
+    id: string,
+    data: QuestionStatusType | IQuestionQ
+  ) {
     return await request(`/questions/${id}`, "put", {
       body: data,
     });
