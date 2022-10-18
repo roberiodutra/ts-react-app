@@ -59,7 +59,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <p>Logo</p>
+      <h1>DevHelper</h1>
       {navHome()}
       {navMemberArea()}
       {navLogin()}

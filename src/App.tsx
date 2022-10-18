@@ -1,5 +1,4 @@
 import { BrowserRouter } from "react-router-dom";
-import "./App.css";
 import ContextProvider from "./context/ContextProvider";
 import Routes from "./routes/";
 
