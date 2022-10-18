@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../../components/Header";
 import { useQuestions } from "../../context/providers/QuestionProvider";
 import { useUsers } from "../../context/providers/UserProvider";
 import QuestionCard from "../member/components/QuestionCard";
@@ -18,6 +19,7 @@ export default function Admin() {
 
   return (
     <main>
+      <Header />
       <QuestionForm />
       {questions
         ?.filter((e) => e.status === "pending")

@@ -1,3 +1,4 @@
+import Header from "../../components/Header";
 import { useQuestions } from "../../context/providers/QuestionProvider";
 import QuestionCard from "../member/components/QuestionCard";
 
@@ -6,6 +7,7 @@ export default function Home() {
 
   return (
     <main>
+      <Header />
       {questions
         ?.filter((e) => e.status !== "pending")
         .map((Q, I) => (
