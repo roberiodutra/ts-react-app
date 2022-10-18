@@ -1,18 +1,67 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useQuestions } from "../context/providers/QuestionProvider";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useUsers } from "../context/providers/UserProvider";
-import QuestionCard from "../pages/member/components/QuestionCard";
-import QuestionForm from "../pages/member/components/QuestionForm";
+import { removeUser } from "../utils/localStorage";
 
 export default function Header() {
-  const { questions } = useQuestions();
-  const { user } = useUsers();
+  const { user, setUser } = useUsers();
   const navigate = useNavigate();
+  const location = useLocation();
+  const navOptions = { admin: "/admin", member: "/member" };
+  const role = user?.role as keyof typeof navOptions;
+
+  const navHome = () => {
+    if (location.pathname === navOptions[role]) {
+      return (
+        <div>
+          <button type="button" onClick={() => navigate("/")}>
+            Home
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              removeUser();
+              setUser(null);
+              navigate("/");
+            }}
+          >
+            Logout
+          </button>
+        </div>
+      );
+    }
+  };
+
+  const navMemberArea = () => {
+    if (location.pathname === "/") {
+      return (
+        <button type="button" onClick={() => navigate(navOptions[role])}>
+          Member Area
+        </button>
+      );
+    }
+  };
+
+  const navLogin = () => {
+    if (!user) {
+      return (
+        <div>
+          <button type="button" onClick={() => navigate("/sign_up")}>
+            Contribute
+          </button>
+          <button type="button" onClick={() => navigate("/sign_in")}>
+            Login
+          </button>
+        </div>
+      );
+    }
+  };
 
   return (
     <header>
-      Header
+      <p>Logo</p>
+      {navHome()}
+      {navMemberArea()}
+      {navLogin()}
     </header>
   );
 }
