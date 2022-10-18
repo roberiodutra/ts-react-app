@@ -12,7 +12,7 @@ export default function Member() {
 
   useEffect(() => {
     if (!user) {
-      navigate('/sign_in');
+      navigate("/sign_in");
     }
   }, [user]);
 

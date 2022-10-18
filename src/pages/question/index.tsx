@@ -28,7 +28,7 @@ export default function Question() {
   useEffect(() => {
     if (id) {
       apiService.getQuestionById(id).then(({ data }) => {
-        if (user?.id === data.userId) {
+        if (user?.id === data.userId || user?.role === "admin") {
           setOwner(true);
           setQuestion(data);
         }
@@ -38,8 +38,8 @@ export default function Question() {
 
   const onSubmit = (data: QuestionType) => {
     if (id) {
-      updateQ(id, data);
-      navigate('/member');
+      updateQ(id, { ...data, status: "pending" });
+      navigate("/member");
     }
     reset();
   };

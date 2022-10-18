@@ -10,8 +10,9 @@ export default function QuestionCard({
   data: { question, status, _id },
 }: dataType) {
   const [admin, setAdmin] = useState(false);
+  const [owner, setOwner] = useState(false);
   const { user } = useUsers();
-  const { publishQ, deleteQ } = useQuestions();
+  const { updateQ, deleteQ } = useQuestions();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,7 +23,19 @@ export default function QuestionCard({
             removeUser();
             navigate("/sign_in");
           }
-          data.role === "admin" ? setAdmin(true) : navigate("/member");
+          data.role === "admin" && setAdmin(true);
+        });
+      }
+    })();
+  }, [user]);
+
+  useEffect(() => {
+    (() => {
+      if (user) {
+        apiService.getQuestionById(_id).then(({ data }) => {
+          if (user.id === data.userId || user.role === "admin") {
+            setOwner(true);
+          }
         });
       }
     })();
@@ -34,18 +47,22 @@ export default function QuestionCard({
       {admin && (
         <button
           type="button"
-          disabled={status !== "pending"}
-          onClick={() => publishQ(_id, { status: "published" })}
+          hidden={status !== "pending"}
+          onClick={() => updateQ(_id, { status: "published" })}
         >
           Publish
         </button>
       )}
-      <button type="button" onClick={() => navigate(`/question/${_id}`)}>
-        Edit
-      </button>
-      <button type="button" onClick={() => deleteQ(_id)}>
-        Delete
-      </button>
+      {owner && (
+        <div>
+          <button type="button" onClick={() => navigate(`/question/${_id}`)}>
+            Edit
+          </button>
+          <button type="button" onClick={() => deleteQ(_id)}>
+            Delete
+          </button>
+        </div>
+      )}
     </div>
   );
 }
