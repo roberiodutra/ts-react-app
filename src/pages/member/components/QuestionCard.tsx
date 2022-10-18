@@ -11,7 +11,7 @@ export default function QuestionCard({
 }: dataType) {
   const [admin, setAdmin] = useState(false);
   const [owner, setOwner] = useState(false);
-  const { user } = useUsers();
+  const { user, setUser } = useUsers();
   const { updateQ, deleteQ } = useQuestions();
   const navigate = useNavigate();
 
@@ -21,6 +21,7 @@ export default function QuestionCard({
         apiService.getUserById(user.id).then(({ data }) => {
           if (user.email !== data.email || user.role !== data.role) {
             removeUser();
+            setUser(null);
             navigate("/sign_in");
           }
           data.role === "admin" && setAdmin(true);

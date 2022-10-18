@@ -33,7 +33,7 @@ export default function Header() {
   };
 
   const navMemberArea = () => {
-    if (path === "/" || path.includes('question')) {
+    if (path === "/" || path.includes("question")) {
       return (
         <button type="button" onClick={() => navigate(navOptions[role])}>
           Member Area
@@ -58,7 +58,7 @@ export default function Header() {
   };
 
   return (
-    <header>
+    <header className="header">
       <p>Logo</p>
       {navHome()}
       {navMemberArea()}
