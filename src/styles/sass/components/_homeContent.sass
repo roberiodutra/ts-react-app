@@ -7,6 +7,9 @@
     font-size: 1.4em
     box-shadow: 0 0 1rem variables.$night-blue
     width: 100%
+    @include mixin.container
+    @include mixin.mobile
+      padding: 1.1rem
 
     & thead tr
       background-color: variables.$night-blue
@@ -24,11 +27,6 @@
 
     & tbody tr:last-of-type
       border-bottom: 0.12rem solid variables.$night-blue
-
-    @include mixin.container
-
-    @include mixin.mobile
-      padding: 1.1rem
 
     button
       @include mixin.button
