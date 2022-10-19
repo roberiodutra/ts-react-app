@@ -30,33 +30,44 @@ export default function QuestionForm() {
   };
 
   return (
-    <div>
+    <section className="question form">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="question">
-          Question
-          <input
-            type="text"
-            {...register("question")}
-            placeholder="Write a question"
-            maxLength={80}
-            required
-          />
-          <div>{errors.question?.message}</div>
-        </label>
-        <label htmlFor="answer">
-          Answer
-          <input
-            type="text"
-            {...register("answer")}
-            placeholder="Answer URL"
-            required
-          />
-          <div>{errors.answer?.message}</div>
-        </label>
-        <button type="submit" onClick={() => setRefresh(true)}>
-          Send
-        </button>
+        <fieldset>
+          <legend>
+            <b>Post a Question</b>
+          </legend>
+          <div className="form-box">
+            <input
+              className="form-input"
+              id="question"
+              type="text"
+              {...register("question")}
+              maxLength={80}
+              required
+            />
+            <label htmlFor="question" className="form-label">
+              Question
+            </label>
+            <div>{errors.question?.message}</div>
+          </div>
+          <div className="form-box">
+            <input
+              className="form-input"
+              id="answer"
+              type="text"
+              {...register("answer")}
+              required
+            />
+            <label htmlFor="answer" className="form-label">
+              Answer(link)
+            </label>
+            <div>{errors.answer?.message}</div>
+          </div>
+          <button type="submit" onClick={() => setRefresh(true)}>
+            Send
+          </button>
+        </fieldset>
       </form>
-    </div>
+    </section>
   );
 }

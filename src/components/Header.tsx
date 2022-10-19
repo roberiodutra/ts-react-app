@@ -1,104 +1,20 @@
-import { useNavigate, useLocation } from "react-router-dom";
-import { useUsers } from "../context/providers/UserProvider";
-import { removeUser } from "../utils/localStorage";
+import NavHome from "./navButtons/NavHome";
+import NavLogin from "./navButtons/NavLogin";
+import NavMemberArea from "./navButtons/NavMemberArea";
+import NavSocialMedia from "./navButtons/NavSocialMedia";
 
 export default function Header() {
-  const { user, setUser } = useUsers();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const navOptions = { admin: "/admin", member: "/member" };
-  const role = user?.role as keyof typeof navOptions;
-  const path = location.pathname;
-
-  const navHome = () => {
-    if (path === navOptions[role]) {
-      return (
-        <div>
-          <button
-            className="navbar-buttons"
-            type="button"
-            onClick={() => navigate("/")}
-          >
-            Home
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              removeUser();
-              setUser(null);
-              navigate("/");
-            }}
-          >
-            Logout
-          </button>
-        </div>
-      );
-    }
-  };
-
-  const navMemberArea = () => {
-    if (path === "/" || path.includes("question")) {
-      return (
-        <div>
-          <button
-            className="navbar-buttons"
-            type="button"
-            onClick={() => navigate(navOptions[role])}
-          >
-            Member Area
-          </button>
-        </div>
-      );
-    }
-  };
-
-  const navLogin = () => {
-    if (!user) {
-      return (
-        <div>
-          <button
-            className="navbar-buttons"
-            type="button"
-            onClick={() => navigate("/sign_up")}
-          >
-            Contribute
-          </button>
-          <button
-            className="navbar-buttons"
-            type="button"
-            onClick={() => navigate("/sign_in")}
-          >
-            Login
-          </button>
-        </div>
-      );
-    }
-  };
-
   return (
     <header className="header">
       <a href="/" className="header-logo">
         DevHelper
       </a>
       <div className="header-navbar">
-        {navHome()}
-        {navMemberArea()}
-        {navLogin()}
+        <NavHome />
+        <NavMemberArea />
+        <NavLogin />
       </div>
-      <section className="header-social-media">
-        <ul>
-          <li>
-            <a href="#">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fab fa-twitter"></i>
-            </a>
-          </li>
-        </ul>
-      </section>
+      <NavSocialMedia />
     </header>
   );
 }

@@ -16,6 +16,7 @@ const QuestionContext = createContext<QuestionContextType | null>(null);
 
 export function QuestionProvider({ children }: PropsType) {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
+  const [memberPage, setMemberPage] = useState("myQuestions");
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
@@ -46,6 +47,8 @@ export function QuestionProvider({ children }: PropsType) {
     setRefresh,
     updateQ,
     deleteQ,
+    memberPage,
+    setMemberPage,
   };
 
   return (

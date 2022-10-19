@@ -202,6 +202,9 @@ body .form p {
   padding: 1.5rem;
   color: #CDC5BF;
 }
+body .question {
+  top: 30%;
+}
 body footer {
   text-align: center;
   padding: 5rem 0;

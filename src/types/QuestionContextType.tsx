@@ -9,4 +9,6 @@ export type QuestionContextType = {
   setRefresh: React.Dispatch<SetStateAction<boolean>>;
   updateQ: (id: string, data: QuestionStatusType | IQuestionQ) => void;
   deleteQ: (id: string) => void;
+  memberPage: string;
+  setMemberPage: React.Dispatch<SetStateAction<string>>;
 };

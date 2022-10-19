@@ -21,11 +21,20 @@ export default function Member() {
     <main>
       <Header />
       <QuestionForm />
-      {questions
-        ?.filter((e) => e.userId === user?.id)
-        .map((Q, I) => (
-          <QuestionCard key={I} data={Q} />
-        ))}
+      <table className="questions-table">
+        <thead>
+          <tr>
+            <th>Questions</th>
+            <th>Answers</th>
+            <th>Author</th>
+          </tr>
+        </thead>
+        {questions
+          ?.filter((e) => e.userId === user?.id)
+          .map((Q, I) => (
+            <QuestionCard key={I} data={Q} />
+          ))}
+      </table>
     </main>
   );
 }
