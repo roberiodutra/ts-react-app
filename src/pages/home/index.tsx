@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { useQuestions } from "../../context/providers/QuestionProvider";
 import QuestionCard from "../member/components/QuestionCard";
@@ -22,6 +23,7 @@ export default function Home() {
             <QuestionCard key={I} data={Q} />
           ))}
       </table>
+      <Footer />
     </main>
   );
 }

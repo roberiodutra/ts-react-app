@@ -108,3 +108,11 @@ body .questions-table button {
 body .questions-table button:hover {
   color: #1f6bb6;
 }
+body footer {
+  text-align: center;
+  padding: 5rem 0;
+}
+body footer span {
+  font-weight: bold;
+  color: #1f6bb6;
+}
