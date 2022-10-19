@@ -73,7 +73,7 @@ body .header-social-media ul li a:hover {
 body .questions-table {
   border-collapse: collapse;
   font-size: 1.4em;
-  box-shadow: 0 0 1rem #04293A;
+  box-shadow: 0 0 1rem rgba(4, 41, 58, 0.6);
   width: 100%;
   max-width: 1280px;
   padding: 1.5rem 0;
@@ -85,35 +85,27 @@ body .questions-table {
   }
 }
 body .questions-table thead tr {
-  background-color: #04293A;
-  color: #ffffff;
+  background-color: rgba(4, 41, 58, 0.6);
+  color: #CDC5BF;
   text-align: left;
 }
 body .questions-table th, body .questions-table td {
   padding: 1.5rem 2.5rem;
 }
 body .questions-table tbody tr {
-  border-bottom: 0.06rem solid #dddddd;
+  border-bottom: 0.06rem solid #CDC5BF;
 }
 body .questions-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+  background-color: #CDC5BF;
 }
 body .questions-table tbody tr:last-of-type {
-  border-bottom: 0.12rem solid #04293A;
+  border-bottom: 0.12rem solid rgba(4, 41, 58, 0.6);
 }
 body .questions-table button {
   all: unset;
   cursor: pointer;
 }
 body .questions-table button:hover {
-  color: #1f6bb6;
-}
-body footer {
-  text-align: center;
-  padding: 5rem 0;
-}
-body footer span {
-  font-weight: bold;
   color: #1f6bb6;
 }
 body .form {
@@ -173,10 +165,10 @@ body .form-input {
   outline: none;
   border-bottom: 0.06rem solid #CDC5BF;
   color: white;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   letter-spacing: 0.12rem;
 }
-body .form-input:focus ~ .form-label, body .form-input:valid ~ .form-label {
+body .form-input:focus ~ .form-label, body .form-input:valid ~ .form-label, body .form-input:-internal-autofill-selected ~ .form-label {
   top: -1.2rem;
   font-size: 0.7rem;
   color: #1f6bb6;
@@ -206,4 +198,12 @@ body .form p {
   text-align: center;
   padding: 1.5rem;
   color: #CDC5BF;
+}
+body footer {
+  text-align: center;
+  padding: 5rem 0;
+}
+body footer span {
+  font-weight: bold;
+  color: #1f6bb6;
 }

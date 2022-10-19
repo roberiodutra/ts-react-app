@@ -52,33 +52,47 @@ export default function Login() {
     reset();
   };
   return (
-    <main>
+    <main className="form">
       <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <h2>Log into your account.</h2>
+        <fieldset>
+          <legend><b>Sign In</b></legend>
 
-        <input
-          type="email"
-          {...register("email")}
-          placeholder="email"
-          required
-        />
-        <p>{errLogin || errors.email?.message}</p>
+          <div className="form-box">
+            <input
+              className="form-input"
+              id="email"
+              type="email"
+              {...register("email")}
+              required
+            />
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
+            <div>{errLogin || errors.email?.message}</div>
+          </div>
 
-        <input
-          type="password"
-          {...register("password")}
-          placeholder="password"
-          required
-        />
-        <p>{errors.password?.message}</p>
+          <div className="form-box">
+            <input
+              className="form-input"
+              id="password"
+              type="password"
+              {...register("password")}
+              required
+            />
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <div>{errors.password?.message}</div>
+          </div>
 
-        <button type="submit">Sign in</button>
+          <button type="submit">Login</button>
+        </fieldset>
       </form>
 
-      <p>Não tem uma conta?</p>
+      <p>Don't have an account?</p>
 
       <button type="button" onClick={() => navigate("/sign_up")}>
-        Cadastre-se
+        Register
       </button>
     </main>
   );

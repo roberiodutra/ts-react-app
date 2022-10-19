@@ -7,7 +7,7 @@
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
-    background-color: rgba(4, 41, 58, 0.6)
+    background-color: variables.$night-blue
     padding: 0.9rem
     border-radius: 0.9rem
     width: 20%
@@ -49,10 +49,12 @@
       outline: none
       border-bottom: 0.06rem solid variables.$seashell3
       color: white
-      font-size: 0.9rem
+      font-size: 1.3rem
       letter-spacing: 0.12rem
 
-    &-input:focus ~ .form-label, &-input:valid ~ .form-label
+    &-input:focus ~ .form-label,
+    &-input:valid ~ .form-label,
+    &-input:-internal-autofill-selected ~ .form-label
       top: -1.2rem
       font-size: 0.7rem
       color: variables.$secondary-color
