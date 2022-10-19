@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { saveUser, getUser } from "../../utils/localStorage";
 import { UserRoleType } from "../../types/UserRoleType";
 import apiService from "../../services/apiService";
+import Header from "../../components/Header";
 
 export default function Login() {
   const [errLogin, setErrLogin] = useState("");
@@ -52,48 +53,53 @@ export default function Login() {
     reset();
   };
   return (
-    <main className="form">
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <fieldset>
-          <legend><b>Sign In</b></legend>
+    <main>
+      <Header />
+      <section className="form">
+        <form onSubmit={handleSubmit(onSubmitHandler)}>
+          <fieldset>
+            <legend>
+              <b>Sign In</b>
+            </legend>
 
-          <div className="form-box">
-            <input
-              className="form-input"
-              id="email"
-              type="email"
-              {...register("email")}
-              required
-            />
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <div>{errLogin || errors.email?.message}</div>
-          </div>
+            <div className="form-box">
+              <input
+                className="form-input"
+                id="email"
+                type="email"
+                {...register("email")}
+                required
+              />
+              <label htmlFor="email" className="form-label">
+                Email
+              </label>
+              <div>{errLogin || errors.email?.message}</div>
+            </div>
 
-          <div className="form-box">
-            <input
-              className="form-input"
-              id="password"
-              type="password"
-              {...register("password")}
-              required
-            />
-            <label htmlFor="password" className="form-label">
-              Password
-            </label>
-            <div>{errors.password?.message}</div>
-          </div>
+            <div className="form-box">
+              <input
+                className="form-input"
+                id="password"
+                type="password"
+                {...register("password")}
+                required
+              />
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
+              <div>{errors.password?.message}</div>
+            </div>
 
-          <button type="submit">Login</button>
-        </fieldset>
-      </form>
+            <button type="submit">Login</button>
+          </fieldset>
+        </form>
 
-      <p>Don't have an account?</p>
+        <p>Don't have an account?</p>
 
-      <button type="button" onClick={() => navigate("/sign_up")}>
-        Register
-      </button>
+        <button type="button" onClick={() => navigate("/sign_up")}>
+          Register
+        </button>
+      </section>
     </main>
   );
 }
