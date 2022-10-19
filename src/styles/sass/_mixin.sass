@@ -10,9 +10,26 @@
   align-items: center
   justify-content: center
 
-@mixin mobile
-  @media(max-width: 480px)
+@mixin phone-only
+  @media (max-width: 479px)
     @content
+
+@mixin tablet-portrait
+  @media (min-width: 480px)
+    @content
+
+@mixin tablet-landscape
+  @media (min-width: 900px)
+    @content
+
+@mixin desktop
+  @media (min-width: 1200px)
+    @content
+
+@mixin big-desktop
+  @media (min-width: 1800px) 
+    @content
+
 
 @mixin button
   all: unset

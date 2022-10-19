@@ -6,7 +6,7 @@
     display: flex
     justify-content: space-between
     @include mixin.container
-    @include mixin.mobile
+    @include mixin.phone-only
       padding: 1.1rem
 
     &-logo
@@ -18,7 +18,7 @@
       margin: 0 1rem
       font-size: 1.1rem
       @include mixin.flex-center
-      @include mixin.mobile
+      @include mixin.phone-only
         display: none
 
     button
@@ -28,7 +28,7 @@
       ul
         @include mixin.flex-center
         height: 100%
-        @include mixin.mobile
+        @include mixin.phone-only
           display: none
 
         li

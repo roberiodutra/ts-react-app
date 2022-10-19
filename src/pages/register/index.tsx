@@ -35,8 +35,8 @@ export default function Register() {
   };
 
   return (
-    <main>
-      <form onSubmit={handleSubmit(onSubmit)} className="form">
+    <main className="form">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
           <legend>
             <b>Sign Up</b>
@@ -117,14 +117,14 @@ export default function Register() {
         </fieldset>
       </form>
 
-      <p>Tem uma conta?</p>
+      <p>Have an account?</p>
 
       <button
         className="sign-button"
         type="button"
         onClick={() => navigate("/sign_in")}
       >
-        Conecte-se
+        Sign In
       </button>
     </main>
   );

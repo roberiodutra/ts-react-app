@@ -10,7 +10,22 @@
     background-color: rgba(4, 41, 58, 0.6)
     padding: 0.9rem
     border-radius: 0.9rem
-    width: 30%
+    width: 20%
+
+    @include mixin.phone-only
+      width: 90%
+
+    @include mixin.tablet-portrait
+      width: 70%
+
+    @include mixin.tablet-landscape
+      width: 50%
+
+    @include mixin.desktop
+      width: 30%
+
+    @include mixin.big-desktop
+      width: 20%
 
     fieldset
       border: 0.18rem solid variables.$grey
@@ -62,3 +77,8 @@
 
       &:hover
         background-image: variables.$linear-green
+
+    p
+      text-align: center
+      padding: 1.5rem
+      color: variables.$seashell3
