@@ -1,0 +1,43 @@
+@use '../variables'
+@use '../mixin'
+
+@mixin section
+  .header
+    display: flex
+    justify-content: space-between
+    @include mixin.container
+
+    @include mixin.mobile
+      padding: 1.1rem
+
+    &-logo
+      color: variables.$primary-color
+      font-size: 2rem
+
+    &-navbar
+      height: 100%
+      margin: 0 1rem
+      font-size: 1rem
+
+      @include mixin.flex-center
+
+      @include mixin.mobile
+        display: none
+
+    button
+      @include mixin.button
+
+    &-social-media
+      ul
+        @include mixin.flex-center
+        height: 100%
+
+        @include mixin.mobile
+          display: none
+
+        li
+          margin: 0 1rem
+
+          a
+            &:hover
+              color: variables.$primary-color

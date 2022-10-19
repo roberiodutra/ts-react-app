@@ -8,11 +8,19 @@ export default function Home() {
   return (
     <main>
       <Header />
-      {questions
-        ?.filter((e) => e.status !== "pending")
-        .map((Q, I) => (
-          <QuestionCard key={I} data={Q} />
-        ))}
+      <table className="questions-table">
+        <thead>
+          <tr>
+            <th>Questions</th>
+            <th>Author</th>
+          </tr>
+        </thead>
+        {questions
+          ?.filter((e) => e.status !== "pending")
+          .map((Q, I) => (
+            <QuestionCard key={I} data={Q} />
+          ))}
+      </table>
     </main>
   );
 }

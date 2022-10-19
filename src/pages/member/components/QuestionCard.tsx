@@ -7,8 +7,9 @@ import { useQuestions } from "../../../context/providers/QuestionProvider";
 import apiService from "../../../services/apiService";
 
 export default function QuestionCard({
-  data: { question, status, _id },
+  data: { question, status, _id, author },
 }: dataType) {
+  console.log("🚀 ~ author", author);
   const [admin, setAdmin] = useState(false);
   const [owner, setOwner] = useState(false);
   const { user, setUser } = useUsers();
@@ -43,27 +44,35 @@ export default function QuestionCard({
   }, [user]);
 
   return (
-    <div>
-      <div>{question}</div>
-      {admin && (
-        <button
-          type="button"
-          hidden={status !== "pending"}
-          onClick={() => updateQ(_id, { status: "published" })}
-        >
-          Publish
-        </button>
-      )}
-      {owner && (
-        <div>
-          <button type="button" onClick={() => navigate(`/question/${_id}`)}>
-            Edit
-          </button>
-          <button type="button" onClick={() => deleteQ(_id)}>
-            Delete
-          </button>
-        </div>
-      )}
-    </div>
+    <tbody>
+      <tr>
+        <td>
+          {question}
+          {admin && (
+            <button
+              type="button"
+              hidden={status !== "pending"}
+              onClick={() => updateQ(_id, { status: "published" })}
+            >
+              Publish
+            </button>
+          )}
+          {owner && (
+            <div>
+              <button
+                type="button"
+                onClick={() => navigate(`/question/${_id}`)}
+              >
+                Edit
+              </button>
+              <button type="button" onClick={() => deleteQ(_id)}>
+                Delete
+              </button>
+            </div>
+          )}
+        </td>
+        <td>{author}</td>
+      </tr>
+    </tbody>
   );
 }

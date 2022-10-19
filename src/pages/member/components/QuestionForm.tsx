@@ -23,6 +23,7 @@ export default function QuestionForm() {
     apiService.registerQuestion({
       ...data,
       userId: user?.id,
+      author: user?.fullName,
       status: "pending",
     });
     reset();

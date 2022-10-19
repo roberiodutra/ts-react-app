@@ -1,4 +1,109 @@
-header {
-  background-color: red;
+* {
   font-family: "Josefin Sans", Arial, sans-serif;
-}/*# sourceMappingURL=styles.css.map */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #777;
+}
+body a {
+  color: #777;
+  text-decoration: none;
+  transition: 0.4s;
+}
+body ul {
+  list-style: none;
+}
+body .header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1280px;
+  padding: 1.5rem 0;
+  margin: 0 auto;
+}
+@media (max-width: 480px) {
+  body .header {
+    padding: 1.1rem;
+  }
+}
+body .header-logo {
+  color: #FFF;
+  font-size: 2rem;
+}
+body .header-navbar {
+  height: 100%;
+  margin: 0 1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 480px) {
+  body .header-navbar {
+    display: none;
+  }
+}
+body .header button {
+  all: unset;
+  cursor: pointer;
+}
+body .header button:hover {
+  color: #1E90FF;
+}
+body .header-social-media ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+@media (max-width: 480px) {
+  body .header-social-media ul {
+    display: none;
+  }
+}
+body .header-social-media ul li {
+  margin: 0 1rem;
+}
+body .header-social-media ul li a:hover {
+  color: #FFF;
+}
+body .questions-table {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  box-shadow: 0 0 20px rgba(240, 24, 24, 0.15);
+  max-width: 1280px;
+  padding: 1.5rem 0;
+  margin: 0 auto;
+}
+body .questions-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+body .questions-table th, body .questions-table td {
+  padding: 12px 15px;
+}
+body .questions-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+body .questions-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+body .questions-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+@media (max-width: 480px) {
+  body .questions-table {
+    padding: 1.1rem;
+  }
+}
+body .questions-table button {
+  all: unset;
+  cursor: pointer;
+}
+body .questions-table button:hover {
+  color: #1E90FF;
+}

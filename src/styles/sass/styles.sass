@@ -1,3 +1,25 @@
-header
-  background-color: red
+@use 'variables'
+@use 'mixin'
+@use 'components/header'
+@use 'components/homeContent'
+
+*
   font-family: 'Josefin Sans', Arial, sans-serif
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+
+body
+  background-color: variables.$bg-color
+  color: variables.$text-color
+
+  a
+    color: variables.$text-color
+    text-decoration: none
+    transition: .4s
+
+  ul
+    list-style: none
+
+  @include header.section
+  @include homeContent.section

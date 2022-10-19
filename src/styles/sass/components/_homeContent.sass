@@ -1,0 +1,34 @@
+@use '../variables'
+@use '../mixin'
+
+@mixin section
+  .questions-table
+    border-collapse: collapse
+    font-size: 0.9em
+    box-shadow: 0 0 20px rgba(240, 24, 24, 0.15)
+
+    & thead tr
+      background-color: #009879
+      color: #ffffff
+      text-align: left
+
+    & th, td
+      padding: 12px 15px
+
+    & tbody tr
+      border-bottom: 1px solid #dddddd
+
+    & tbody tr:nth-of-type(even)
+      background-color: #f3f3f3
+
+    & tbody tr:last-of-type
+      border-bottom: 2px solid #009879
+
+    @include mixin.container
+
+    @include mixin.mobile
+      padding: 1.1rem
+
+    button
+      @include mixin.button
+

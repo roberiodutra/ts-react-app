@@ -59,10 +59,28 @@ export default function Header() {
 
   return (
     <header className="header">
-      <h1>DevHelper</h1>
-      {navHome()}
-      {navMemberArea()}
-      {navLogin()}
+      <a href="/" className="header-logo">
+        DevHelper
+      </a>
+      <nav className="header-navBar">
+        {navHome()}
+        {navMemberArea()}
+        {navLogin()}
+      </nav>
+      <section className="header-social-media">
+        <ul>
+          <li>
+            <a href="#">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i className="fab fa-twitter"></i>
+            </a>
+          </li>
+        </ul>
+      </section>
     </header>
   );
 }
