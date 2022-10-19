@@ -36,7 +36,7 @@ body .header-logo {
 body .header-navbar {
   height: 100%;
   margin: 0 1rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +51,7 @@ body .header button {
   cursor: pointer;
 }
 body .header button:hover {
-  color: #1E90FF;
+  color: #1f6bb6;
 }
 body .header-social-media ul {
   display: flex;
@@ -72,28 +72,29 @@ body .header-social-media ul li a:hover {
 }
 body .questions-table {
   border-collapse: collapse;
-  font-size: 0.9em;
-  box-shadow: 0 0 20px rgba(240, 24, 24, 0.15);
+  font-size: 1.4em;
+  box-shadow: 0 0 1rem #04293A;
+  width: 100%;
   max-width: 1280px;
   padding: 1.5rem 0;
   margin: 0 auto;
 }
 body .questions-table thead tr {
-  background-color: #009879;
+  background-color: #04293A;
   color: #ffffff;
   text-align: left;
 }
 body .questions-table th, body .questions-table td {
-  padding: 12px 15px;
+  padding: 1.5rem 2.5rem;
 }
 body .questions-table tbody tr {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 0.06rem solid #dddddd;
 }
 body .questions-table tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
 body .questions-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 0.12rem solid #04293A;
 }
 @media (max-width: 480px) {
   body .questions-table {
@@ -105,5 +106,5 @@ body .questions-table button {
   cursor: pointer;
 }
 body .questions-table button:hover {
-  color: #1E90FF;
+  color: #1f6bb6;
 }

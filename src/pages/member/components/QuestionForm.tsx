@@ -38,6 +38,7 @@ export default function QuestionForm() {
             type="text"
             {...register("question")}
             placeholder="Write a question"
+            maxLength={80}
             required
           />
           <div>{errors.question?.message}</div>

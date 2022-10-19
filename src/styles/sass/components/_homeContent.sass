@@ -4,25 +4,26 @@
 @mixin section
   .questions-table
     border-collapse: collapse
-    font-size: 0.9em
-    box-shadow: 0 0 20px rgba(240, 24, 24, 0.15)
+    font-size: 1.4em
+    box-shadow: 0 0 1rem variables.$night-blue
+    width: 100%
 
     & thead tr
-      background-color: #009879
+      background-color: variables.$night-blue
       color: #ffffff
       text-align: left
 
     & th, td
-      padding: 12px 15px
+      padding: 1.5rem 2.5rem
 
     & tbody tr
-      border-bottom: 1px solid #dddddd
+      border-bottom: 0.06rem solid #dddddd
 
     & tbody tr:nth-of-type(even)
       background-color: #f3f3f3
 
     & tbody tr:last-of-type
-      border-bottom: 2px solid #009879
+      border-bottom: 0.12rem solid variables.$night-blue
 
     @include mixin.container
 

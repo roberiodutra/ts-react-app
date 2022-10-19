@@ -62,11 +62,11 @@ export default function Header() {
       <a href="/" className="header-logo">
         DevHelper
       </a>
-      <nav className="header-navBar">
+      <div className="header-navbar">
         {navHome()}
         {navMemberArea()}
         {navLogin()}
-      </nav>
+      </div>
       <section className="header-social-media">
         <ul>
           <li>

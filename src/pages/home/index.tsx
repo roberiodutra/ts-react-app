@@ -12,6 +12,7 @@ export default function Home() {
         <thead>
           <tr>
             <th>Questions</th>
+            <th>Answers</th>
             <th>Author</th>
           </tr>
         </thead>

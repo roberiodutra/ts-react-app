@@ -5,16 +5,17 @@ import { removeUser } from "../../../utils/localStorage";
 import { useNavigate } from "react-router-dom";
 import { useQuestions } from "../../../context/providers/QuestionProvider";
 import apiService from "../../../services/apiService";
+import getFavicon from "../../../utils/getFavicon";
 
 export default function QuestionCard({
-  data: { question, status, _id, author },
+  data: { question, status, _id, author, answer },
 }: dataType) {
-  console.log("🚀 ~ author", author);
   const [admin, setAdmin] = useState(false);
   const [owner, setOwner] = useState(false);
   const { user, setUser } = useUsers();
   const { updateQ, deleteQ } = useQuestions();
   const navigate = useNavigate();
+  const defaultImg = 'src/assets/default-img.png';
 
   useEffect(() => {
     (() => {
@@ -47,7 +48,11 @@ export default function QuestionCard({
     <tbody>
       <tr>
         <td>
-          {question}
+          {
+            <a href={answer} target="_blank" rel="noopener noreferrer">
+              {question}
+            </a>
+          }
           {admin && (
             <button
               type="button"
@@ -70,6 +75,12 @@ export default function QuestionCard({
               </button>
             </div>
           )}
+        </td>
+        <td>
+          <img src={getFavicon(answer)} alt="answer" onError={event => {
+          (event.target as HTMLImageElement).src = defaultImg;
+          (event.target as HTMLImageElement).onerror = null;
+          }}/>
         </td>
         <td>{author}</td>
       </tr>

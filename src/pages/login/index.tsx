@@ -41,7 +41,6 @@ export default function Login() {
     apiService
       .signIN(data)
       .then(({ data }) => {
-        console.log('🚀 ~ .then ~ data', data);
         const { role } = data;
         setUser(data);
         saveUser(data);
