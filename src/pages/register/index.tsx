@@ -15,7 +15,6 @@ export default function Register() {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<UserRegisterType>({
     resolver: yupResolver(registerSchema),
@@ -37,68 +36,94 @@ export default function Register() {
 
   return (
     <main>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <input
-            type="text"
-            {...register("firstName")}
-            placeholder="first name"
-            required
-          />
-          <div>{errors.firstName?.message}</div>
-        </div>
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
+        <fieldset>
+          <legend>
+            <b>Sign Up</b>
+          </legend>
+          <div className="form-box">
+            <input
+              className="form-input"
+              id="first-name"
+              type="text"
+              {...register("firstName")}
+              required
+            />
+            <label htmlFor="first-name" className="form-label">
+              First Name
+            </label>
+            <div>{errors.firstName?.message}</div>
+          </div>
 
-        <div>
-          <input
-            type="text"
-            {...register("lastName")}
-            placeholder="last name"
-            required
-          />
-          <div>{errors.lastName?.message}</div>
-        </div>
+          <div className="form-box">
+            <input
+              className="form-input"
+              id="last-name"
+              type="text"
+              {...register("lastName")}
+              required
+            />
+            <label htmlFor="last-name" className="form-label">
+              Last Name
+            </label>
+            <div>{errors.lastName?.message}</div>
+          </div>
 
-        <div>
-          <input
-            type="text"
-            {...register("email")}
-            placeholder="email"
-            required
-          />
-          <div>{errRegister || errors.email?.message}</div>
-        </div>
+          <div className="form-box">
+            <input
+              className="form-input"
+              id="email"
+              type="text"
+              {...register("email")}
+              required
+            />
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
+            <div>{errRegister || errors.email?.message}</div>
+          </div>
 
-        <div>
-          <input
-            type="password"
-            {...register("password")}
-            placeholder="password"
-            required
-          />
-          <div>{errors.password?.message}</div>
-        </div>
+          <div className="form-box">
+            <input
+              className="form-input"
+              id="password"
+              type="password"
+              {...register("password")}
+              required
+            />
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <div>{errors.password?.message}</div>
+          </div>
 
-        <div>
-          <input
-            type="password"
-            {...register("confirmPassword")}
-            placeholder="confirm password"
-            required
-          />
-          <div>{errors.confirmPassword?.message}</div>
-        </div>
+          <div className="form-box">
+            <input
+              className="form-input"
+              id="confirm-password"
+              type="password"
+              {...register("confirmPassword")}
+              required
+            />
+            <label htmlFor="confirm-password" className="form-label">
+              Confirm Password
+            </label>
+            <div>{errors.confirmPassword?.message}</div>
+          </div>
 
-        <div>
-          <button type="submit">Register</button>
-          <button type="button" onClick={() => reset()}>
-            Reset
-          </button>
-        </div>
+          <div className="form-button">
+            <button type="submit">Register</button>
+          </div>
+        </fieldset>
       </form>
 
       <p>Tem uma conta?</p>
 
-      <button type="button" onClick={() => navigate("/sign_in")}>
+      <button
+        className="sign-button"
+        type="button"
+        onClick={() => navigate("/sign_in")}
+      >
         Conecte-se
       </button>
     </main>

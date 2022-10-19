@@ -1,8 +1,9 @@
 @use 'variables'
 @use 'mixin'
 @use 'components/header'
-@use 'components/homeContent'
+@use 'components/home'
 @use 'components/footer'
+@use 'components/register'
 
 *
   font-family: 'Josefin Sans', Arial, sans-serif
@@ -23,5 +24,6 @@ body
     list-style: none
 
   @include header.section
-  @include homeContent.section
+  @include home.section
   @include footer.section
+  @include register.section

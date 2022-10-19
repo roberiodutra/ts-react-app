@@ -116,3 +116,64 @@ body footer span {
   font-weight: bold;
   color: #1f6bb6;
 }
+body .form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(4, 41, 58, 0.6);
+  padding: 0.9rem;
+  border-radius: 0.9rem;
+  width: 30%;
+}
+body .form fieldset {
+  border: 0.18rem solid #141414;
+  padding: 0.3rem;
+}
+body .form legend {
+  padding: 0.7rem;
+  background-image: linear-gradient(to right, rgb(1, 11, 22), rgb(4, 1, 8));
+  color: #CDC5BF;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+body .form-box {
+  position: relative;
+  padding: 1.2rem;
+}
+body .form-input {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 0.06rem solid #CDC5BF;
+  color: white;
+  font-size: 0.9rem;
+  letter-spacing: 0.12rem;
+}
+body .form-input:focus ~ .form-label, body .form-input:valid ~ .form-label {
+  top: -1.2rem;
+  font-size: 0.7rem;
+  color: #1f6bb6;
+}
+body .form-label {
+  position: absolute;
+  color: #CDC5BF;
+  padding: 1.2rem;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+body .form button {
+  width: 100%;
+  background-image: linear-gradient(to right, rgb(1, 11, 22), rgb(4, 1, 8));
+  padding: 0.7rem;
+  color: #CDC5BF;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 0.6rem;
+}
+body .form button:hover {
+  background-image: linear-gradient(to right, rgb(15, 29, 46), rgb(4, 12, 5));
+}

@@ -1,0 +1,64 @@
+@use '../variables'
+@use '../mixin'
+
+@mixin section
+  .form
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    background-color: rgba(4, 41, 58, 0.6)
+    padding: 0.9rem
+    border-radius: 0.9rem
+    width: 30%
+
+    fieldset
+      border: 0.18rem solid variables.$grey
+      padding: 0.3rem
+
+    legend
+      padding: 0.7rem
+      background-image: variables.$linear-black
+      color: variables.$seashell3
+      text-align: center
+      border-radius: 0.5rem
+
+    &-box
+      position: relative
+      padding: 1.2rem
+
+    &-input
+      width: 100%
+      background: none
+      border: none
+      outline: none
+      border-bottom: 0.06rem solid variables.$seashell3
+      color: white
+      font-size: 0.9rem
+      letter-spacing: 0.12rem
+
+    &-input:focus ~ .form-label, &-input:valid ~ .form-label
+      top: -1.2rem
+      font-size: 0.7rem
+      color: variables.$secondary-color
+
+    &-label
+      position: absolute
+      color: variables.$seashell3
+      padding: 1.2rem
+      top: 0
+      left: 0
+      pointer-events: none
+      transition: .4s
+
+    button
+      width: 100%
+      background-image: variables.$linear-black
+      padding: 0.7rem
+      color: variables.$seashell3
+      font-size: 1.2rem
+      cursor: pointer
+      border-radius: 0.6rem
+
+      &:hover
+        background-image: variables.$linear-green
