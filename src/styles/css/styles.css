@@ -53,6 +53,9 @@ body .header button {
 body .header button:hover {
   color: #1f6bb6;
 }
+body .header .navbar-buttons {
+  padding: 0 1rem;
+}
 body .header-social-media ul {
   display: flex;
   align-items: center;

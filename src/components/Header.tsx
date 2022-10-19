@@ -14,7 +14,11 @@ export default function Header() {
     if (path === navOptions[role]) {
       return (
         <div>
-          <button type="button" onClick={() => navigate("/")}>
+          <button
+            className="navbar-buttons"
+            type="button"
+            onClick={() => navigate("/")}
+          >
             Home
           </button>
           <button
@@ -35,9 +39,15 @@ export default function Header() {
   const navMemberArea = () => {
     if (path === "/" || path.includes("question")) {
       return (
-        <button type="button" onClick={() => navigate(navOptions[role])}>
-          Member Area
-        </button>
+        <div>
+          <button
+            className="navbar-buttons"
+            type="button"
+            onClick={() => navigate(navOptions[role])}
+          >
+            Member Area
+          </button>
+        </div>
       );
     }
   };
@@ -46,10 +56,18 @@ export default function Header() {
     if (!user) {
       return (
         <div>
-          <button type="button" onClick={() => navigate("/sign_up")}>
+          <button
+            className="navbar-buttons"
+            type="button"
+            onClick={() => navigate("/sign_up")}
+          >
             Contribute
           </button>
-          <button type="button" onClick={() => navigate("/sign_in")}>
+          <button
+            className="navbar-buttons"
+            type="button"
+            onClick={() => navigate("/sign_in")}
+          >
             Login
           </button>
         </div>

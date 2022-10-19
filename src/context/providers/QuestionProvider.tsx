@@ -27,15 +27,17 @@ export function QuestionProvider({ children }: PropsType) {
 
   const updateQ = useCallback(
     async (id: string, data: QuestionStatusType | IQuestionQ) => {
-      await apiService.updateQuestion(id, data);
-      setRefresh(true);
+      await apiService.updateQuestion(id, data).then(() => {
+        setRefresh(true);
+      });
     },
     []
   );
 
   const deleteQ = useCallback(async (id: string) => {
-    await apiService.deleteQuestion(id);
-    setRefresh(true);
+    await apiService.deleteQuestion(id).then(() => {
+      setRefresh(true);
+    });
   }, []);
 
   const value = {
