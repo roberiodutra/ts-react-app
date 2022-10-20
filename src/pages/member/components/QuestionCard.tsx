@@ -12,10 +12,11 @@ export default function QuestionCard({
 }: dataType) {
   const [admin, setAdmin] = useState(false);
   const [owner, setOwner] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(false);
   const { user, setUser } = useUsers();
   const { updateQ, deleteQ } = useQuestions();
   const navigate = useNavigate();
-  const defaultImg = 'src/assets/default-img.png';
+  const defaultImg = "src/assets/default-img.png";
 
   useEffect(() => {
     (() => {
@@ -44,6 +45,10 @@ export default function QuestionCard({
     })();
   }, [user]);
 
+  const handleToggle = () => {
+    setNavbarOpen(!navbarOpen);
+  };
+
   return (
     <tbody>
       <tr>
@@ -53,34 +58,53 @@ export default function QuestionCard({
               {question}
             </a>
           }
-          {admin && (
-            <button
-              type="button"
-              hidden={status !== "pending"}
-              onClick={() => updateQ(_id, { status: "published" })}
-            >
-              Publish
-            </button>
-          )}
-          {owner && (
-            <div>
-              <button
-                type="button"
-                onClick={() => navigate(`/question/${_id}`)}
-              >
-                Edit
-              </button>
-              <button type="button" onClick={() => deleteQ(_id)}>
-                Delete
-              </button>
-            </div>
-          )}
         </td>
+        {(admin || owner) && (
+          <td>
+            <nav className="navbar">
+              <button className="actions" onClick={handleToggle}>
+                {navbarOpen ? (
+                  <i className="fa-solid fa-x"></i>
+                ) : (
+                  <i className="fa-sharp fa-solid fa-gear"></i>
+                )}
+              </button>
+              <div className={`actions-menu ${navbarOpen ? " show-menu" : ""}`}>
+                {admin && (
+                  <div
+                    className="actions"
+                    hidden={status !== "pending"}
+                    onClick={() => updateQ(_id, { status: "published" })}
+                  >
+                    Publish
+                  </div>
+                )}
+                {owner && (
+                  <div>
+                    <div
+                      className="actions"
+                      onClick={() => navigate(`/question/${_id}`)}
+                    >
+                      Edit
+                    </div>
+                    <div className="actions" onClick={() => deleteQ(_id)}>
+                      Delete
+                    </div>
+                  </div>
+                )}
+              </div>
+            </nav>
+          </td>
+        )}
         <td>
-          <img src={getFavicon(answer)} alt="answer" onError={event => {
-          (event.target as HTMLImageElement).src = defaultImg;
-          (event.target as HTMLImageElement).onerror = null;
-          }}/>
+          <img
+            src={getFavicon(answer)}
+            alt="answer"
+            onError={(event) => {
+              (event.target as HTMLImageElement).src = defaultImg;
+              (event.target as HTMLImageElement).onerror = null;
+            }}
+          />
         </td>
         <td>{author}</td>
       </tr>

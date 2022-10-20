@@ -28,6 +28,7 @@ export default function Admin() {
           <thead>
             <tr>
               <th>Questions</th>
+              <th></th>
               <th>Answers</th>
               <th>Author</th>
             </tr>

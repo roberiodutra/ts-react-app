@@ -204,6 +204,29 @@ body .form p {
 body .text-area {
   font-size: 1rem;
 }
+body .navbar {
+  position: fixed;
+  margin-top: -25px;
+}
+body .navbar .actions-menu {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  overflow: hidden;
+}
+body .navbar .show-menu {
+  width: 51px;
+  height: 70px;
+  cursor: pointer;
+}
+body .navbar .actions {
+  padding: 5px 0;
+  font-size: 15px;
+}
+body .navbar .actions:hover {
+  color: #1f6bb6;
+}
 body footer {
   text-align: center;
   padding: 5rem 0;

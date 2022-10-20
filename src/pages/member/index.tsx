@@ -28,6 +28,7 @@ export default function Member() {
           <thead>
             <tr>
               <th>Questions</th>
+              <th></th>
               <th>Answers</th>
               <th>Author</th>
             </tr>
