@@ -1,9 +1,8 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useUsers } from "../../context/providers/UserProvider";
-import { removeUser } from "../../utils/localStorage";
 
 export default function NavHome() {
-  const { user, setUser } = useUsers();
+  const { user } = useUsers();
   const navigate = useNavigate();
   const location = useLocation();
   const navOptions = { admin: "/admin", member: "/member" };
@@ -12,24 +11,14 @@ export default function NavHome() {
 
   return (
     <div>
-      {path === navOptions[role] && (
+      {user && (path === "/" || path.includes("question")) && (
         <div>
           <button
             className="navbar-buttons"
             type="button"
-            onClick={() => navigate("/")}
+            onClick={() => navigate(navOptions[role])}
           >
-            Home
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              removeUser();
-              setUser(null);
-              navigate("/");
-            }}
-          >
-            Logout
+            Member Area
           </button>
         </div>
       )}

@@ -1,6 +1,6 @@
-import NavHome from "./navButtons/NavHome";
+import NavHome from "./navButtons/NavMemberArea";
 import NavLogin from "./navButtons/NavLogin";
-import NavMemberArea from "./navButtons/NavMemberArea";
+import NavMemberArea from "./navButtons/NavHome";
 import NavSocialMedia from "./navButtons/NavSocialMedia";
 
 export default function Header() {

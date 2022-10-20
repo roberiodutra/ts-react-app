@@ -7,7 +7,7 @@ import QuestionCard from "./components/QuestionCard";
 import QuestionForm from "./components/QuestionForm";
 
 export default function Member() {
-  const { questions } = useQuestions();
+  const { questions, memberPage } = useQuestions();
   const { user } = useUsers();
   const navigate = useNavigate();
 
@@ -20,21 +20,24 @@ export default function Member() {
   return (
     <main>
       <Header />
-      <QuestionForm />
-      <table className="questions-table">
-        <thead>
-          <tr>
-            <th>Questions</th>
-            <th>Answers</th>
-            <th>Author</th>
-          </tr>
-        </thead>
-        {questions
-          ?.filter((e) => e.userId === user?.id)
-          .map((Q, I) => (
-            <QuestionCard key={I} data={Q} />
-          ))}
-      </table>
+      {memberPage === "addQuestion" ? (
+        <QuestionForm />
+      ) : (
+        <table className="questions-table">
+          <thead>
+            <tr>
+              <th>Questions</th>
+              <th>Answers</th>
+              <th>Author</th>
+            </tr>
+          </thead>
+          {questions
+            ?.filter((e) => e.userId === user?.id)
+            .map((Q, I) => (
+              <QuestionCard key={I} data={Q} />
+            ))}
+        </table>
+      )}
     </main>
   );
 }
