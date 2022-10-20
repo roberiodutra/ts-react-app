@@ -30,7 +30,7 @@ export default function QuestionForm() {
   };
 
   return (
-    <section className="question form">
+    <section className="form">
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
           <legend>
@@ -42,7 +42,7 @@ export default function QuestionForm() {
               id="question"
               type="text"
               {...register("question")}
-              maxLength={80}
+              maxLength={60}
               required
             />
             <label htmlFor="question" className="form-label">

@@ -112,10 +112,8 @@ body .questions-table button:hover {
   color: #1f6bb6;
 }
 body .form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  margin-top: 10%;
   background-color: rgba(4, 41, 58, 0.6);
   padding: 0.9rem;
   border-radius: 0.9rem;
@@ -156,6 +154,7 @@ body .form legend {
   color: #CDC5BF;
   text-align: center;
   border-radius: 0.5rem;
+  margin-bottom: 20px;
 }
 body .form-box {
   position: relative;
@@ -202,8 +201,8 @@ body .form p {
   padding: 1.5rem;
   color: #CDC5BF;
 }
-body .question {
-  top: 30%;
+body .text-area {
+  font-size: 1rem;
 }
 body footer {
   text-align: center;

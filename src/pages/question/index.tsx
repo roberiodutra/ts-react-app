@@ -41,7 +41,7 @@ export default function Question() {
   const onSubmit = (data: QuestionType) => {
     if (id) {
       updateQ(id, { ...data, status: "pending" });
-      navigate("/member");
+      navigate(`/${user?.role}`);
     }
     reset();
   };
@@ -50,29 +50,45 @@ export default function Question() {
     <div>
       <Header />
       {isOwner && (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="question">
-            Question
-            <input
-              type="text"
-              {...register("question")}
-              defaultValue={question?.question}
-              required
-            />
-            <div>{errors.question?.message}</div>
-          </label>
-          <label htmlFor="answer">
-            Answer
-            <input
-              type="text"
-              {...register("answer")}
-              defaultValue={question?.answer}
-              required
-            />
-            <div>{errors.answer?.message}</div>
-          </label>
-          <button type="submit">Save</button>
-        </form>
+        <div className="form">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <fieldset>
+              <legend>
+                <b>Editor Mode</b>
+              </legend>
+              <div className="form-box">
+                <textarea
+                  className="text-area form-input"
+                  id="question"
+                  {...register("question")}
+                  defaultValue={question?.question}
+                  rows={4}
+                  maxLength={60}
+                  required
+                />
+                <label htmlFor="question" className="form-label">
+                  Question
+                </label>
+                <div>{errors.question?.message}</div>
+              </div>
+              <div className="form-box">
+                <textarea
+                  className="text-area form-input"
+                  id="answer"
+                  {...register("answer")}
+                  defaultValue={question?.answer}
+                  rows={4}
+                  required
+                />
+                <label htmlFor="answer" className="form-label">
+                  Answer
+                </label>
+                <div>{errors.answer?.message}</div>
+              </div>
+              <button type="submit">Save</button>
+            </fieldset>
+          </form>
+        </div>
       )}
       <Footer />
     </div>
