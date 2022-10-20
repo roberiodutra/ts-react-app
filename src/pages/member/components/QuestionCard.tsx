@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useUsers } from "../../../context/providers/UserProvider";
 import { dataType } from "../../../types/dataType";
 import { removeUser } from "../../../utils/localStorage";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useQuestions } from "../../../context/providers/QuestionProvider";
 import apiService from "../../../services/apiService";
 import getFavicon from "../../../utils/getFavicon";
@@ -17,6 +17,8 @@ export default function QuestionCard({
   const { updateQ, deleteQ } = useQuestions();
   const navigate = useNavigate();
   const defaultImg = "src/assets/default-img.png";
+  const location = useLocation();
+  const path = location.pathname;
 
   useEffect(() => {
     (() => {
@@ -59,7 +61,7 @@ export default function QuestionCard({
             </a>
           }
         </td>
-        {(admin || owner) && (
+        {path !== "/" && (
           <td>
             <nav className="navbar">
               <button className="actions" onClick={handleToggle}>
