@@ -12,6 +12,7 @@ export default function NavMemberArea() {
   const role = user?.role as keyof typeof navOptions;
   const path = location.pathname;
   const navMember = { add: "addQuestion", own: "myQuestions" };
+  const titleByUserRole = role === "admin" ? "Dashboard" : "My Questions";
 
   return (
     <div>
@@ -30,7 +31,7 @@ export default function NavMemberArea() {
               type="button"
               onClick={() => setMemberPage(navMember.own)}
             >
-              My Questions
+              {titleByUserRole}
             </button>
           )}
           {memberPage === navMember.own && (
