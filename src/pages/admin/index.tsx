@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { useQuestions } from "../../context/providers/QuestionProvider";
 import { useUsers } from "../../context/providers/UserProvider";
@@ -38,6 +39,7 @@ export default function Admin() {
             ))}
         </table>
       )}
+      <Footer />
     </main>
   );
 }

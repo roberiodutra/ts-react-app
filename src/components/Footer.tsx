@@ -1,7 +1,11 @@
 export default function Footer() {
   return (
     <footer>
-      <p><span>DevHelper</span> &copy; 2022</p>
+      <span>
+        <p>
+          Made by <a href="https://github.com/roberiodutra">@Robério Dutra</a>
+        </p>
+      </span>
     </footer>
   );
 }

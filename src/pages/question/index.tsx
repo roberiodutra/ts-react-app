@@ -8,6 +8,7 @@ import { useQuestions } from "../../context/providers/QuestionProvider";
 import apiService from "../../services/apiService";
 import { useEffect, useState } from "react";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function Question() {
   const [isOwner, setOwner] = useState(false);
@@ -73,6 +74,7 @@ export default function Question() {
           <button type="submit">Save</button>
         </form>
       )}
+      <Footer />
     </div>
   );
 }

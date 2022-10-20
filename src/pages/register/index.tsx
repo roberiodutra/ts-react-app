@@ -8,6 +8,7 @@ import { useUsers } from "../../context/providers/UserProvider";
 import { useState } from "react";
 import apiService from "../../services/apiService";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function Register() {
   const [errRegister, setErrRegister] = useState("");
@@ -130,6 +131,7 @@ export default function Register() {
           Sign In
         </button>
       </section>
+      <Footer />
     </main>
   );
 }

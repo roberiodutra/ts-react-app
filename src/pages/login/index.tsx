@@ -9,6 +9,7 @@ import { saveUser, getUser } from "../../utils/localStorage";
 import { UserRoleType } from "../../types/UserRoleType";
 import apiService from "../../services/apiService";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function Login() {
   const [errLogin, setErrLogin] = useState("");
@@ -100,6 +101,7 @@ export default function Login() {
           Register
         </button>
       </section>
+      <Footer />
     </main>
   );
 }

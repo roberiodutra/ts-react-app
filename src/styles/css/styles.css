@@ -30,8 +30,8 @@ body .header {
   }
 }
 body .header-logo {
-  color: #FFF;
-  font-size: 2rem;
+  color: #04293A;
+  font-size: 2.2rem;
 }
 body .header-navbar {
   height: 100%;
@@ -208,8 +208,9 @@ body .question {
 body footer {
   text-align: center;
   padding: 5rem 0;
+  font-size: 0.8rem;
 }
 body footer span {
   font-weight: bold;
-  color: #1f6bb6;
+  color: #04293A;
 }
