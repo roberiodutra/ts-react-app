@@ -25,7 +25,7 @@ class ApiService {
   }
 
   public async getAllQuestions() {
-    return await request("/questions", "get", {});
+    return await request("/questions?page=1&limit=3", "get", {});
   }
 
   public async getQuestionById(id: string) {

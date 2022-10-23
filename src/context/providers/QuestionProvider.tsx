@@ -21,7 +21,9 @@ export function QuestionProvider({ children }: PropsType) {
 
   useEffect(() => {
     (() => {
-      apiService.getAllQuestions().then(({ data }) => setQuestions(data));
+      apiService
+        .getAllQuestions()
+        .then(({ data: { questions } }) => setQuestions(questions));
       setRefresh(false);
     })();
   }, [refresh]);
