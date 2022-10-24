@@ -17,16 +17,21 @@ const QuestionContext = createContext<QuestionContextType | null>(null);
 export function QuestionProvider({ children }: PropsType) {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [memberPage, setMemberPage] = useState("myQuestions");
+  const [questionStatus, setStatus] = useState("published");
+  const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(1);
   const [refresh, setRefresh] = useState(false);
+  const LIMIT = 2;
 
   useEffect(() => {
-    (() => {
-      apiService
-        .getAllQuestions()
-        .then(({ data: { questions } }) => setQuestions(questions));
-      setRefresh(false);
-    })();
-  }, [refresh]);
+    apiService
+      .getAllQuestions(page, LIMIT, questionStatus)
+      .then(({ data: { questions, total } }) => {
+        setQuestions(questions);
+        setPageCount(Math.ceil(total[0].count / LIMIT));
+      });
+    setRefresh(false);
+  }, [refresh, page, questionStatus]);
 
   const updateQ = useCallback(
     async (id: string, data: QuestionStatusType | IQuestionQ) => {
@@ -51,6 +56,10 @@ export function QuestionProvider({ children }: PropsType) {
     deleteQ,
     memberPage,
     setMemberPage,
+    page,
+    setPage,
+    pageCount,
+    setStatus,
   };
 
   return (

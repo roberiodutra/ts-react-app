@@ -10,12 +10,10 @@ export function UserProvider({ children }: PropsType) {
   const [user, setUser] = useState<LocalUserType | null>(null);
 
   useEffect(() => {
-    (async () => {
-      const localUser = getUser();
-      if (localUser) {
-        setUser({ ...localUser });
-      }
-    })();
+    const localUser = getUser();
+    if (localUser) {
+      setUser({ ...localUser });
+    }
   }, []);
 
   const value = {

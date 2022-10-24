@@ -24,8 +24,12 @@ class ApiService {
     });
   }
 
-  public async getAllQuestions() {
-    return await request("/questions?page=1&limit=3", "get", {});
+  public async getAllQuestions(PAGE: number, LIMIT: number, STATUS: string) {
+    return await request(
+      `/questions?page=${PAGE}&limit=${LIMIT}&status=${STATUS}`,
+      "get",
+      {}
+    );
   }
 
   public async getQuestionById(id: string) {

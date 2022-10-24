@@ -21,30 +21,22 @@ export default function QuestionCard({
   const path = location.pathname;
 
   useEffect(() => {
-    (() => {
-      if (user) {
-        apiService.getUserById(user.id).then(({ data }) => {
-          if (user.email !== data.email || user.role !== data.role) {
-            removeUser();
-            setUser(null);
-            navigate("/sign_in");
-          }
-          data.role === "admin" && setAdmin(true);
-        });
-      }
-    })();
-  }, [user]);
+    if (user) {
+      apiService.getUserById(user.id).then(({ data }) => {
+        if (user.email !== data.email || user.role !== data.role) {
+          removeUser();
+          setUser(null);
+          navigate("/sign_in");
+        }
+        data.role === "admin" && setAdmin(true);
+      });
 
-  useEffect(() => {
-    (() => {
-      if (user) {
-        apiService.getQuestionById(_id).then(({ data }) => {
-          if (user.id === data.userId || user.role === "admin") {
-            setOwner(true);
-          }
-        });
-      }
-    })();
+      apiService.getQuestionById(_id).then(({ data }) => {
+        if (user.id === data.userId || user.role === "admin") {
+          setOwner(true);
+        }
+      });
+    }
   }, [user]);
 
   const handleToggle = () => {
