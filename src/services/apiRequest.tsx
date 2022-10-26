@@ -21,8 +21,7 @@ async function request(
       | UserRegisterType
       | QuestionType
       | QuestionStatusType
-      | IQuestionQ
-      | string;
+      | IQuestionQ;
     headers?: AxiosRequestHeaders;
   }
 ) {

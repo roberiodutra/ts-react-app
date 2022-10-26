@@ -4,9 +4,10 @@ import { useQuestions } from "../context/providers/QuestionProvider";
 export default function Pagination() {
   const { page, setPage, pageCount } = useQuestions();
   const NAV_ITEMS = 9;
-  const MAX_LEFT = (NAV_ITEMS - 1) / 2;
-  const maxFirst = Math.max(pageCount - (NAV_ITEMS - 1), 1);
-  const first = Math.min(Math.max(page - MAX_LEFT, 1), maxFirst);
+  const firstNavButton = Math.min(
+    Math.max(page - (NAV_ITEMS - 1) / 2, 1),
+    Math.max(pageCount - (NAV_ITEMS - 1), 1)
+  );
 
   function handleChange(event: FormEvent<EventTarget>) {
     const target = event.target as HTMLInputElement;
@@ -30,8 +31,14 @@ export default function Pagination() {
           .fill(null)
           .map((_, index) => (
             <li key={index}>
-              <button value={index + first} onClick={handleChange}>
-                {index + first}
+              <button
+                className={
+                  index === pageCount / 9 + 1 ? "pagination__item--active" : ""
+                }
+                value={index + firstNavButton}
+                onClick={handleChange}
+              >
+                {index + firstNavButton}
               </button>
             </li>
           ))}

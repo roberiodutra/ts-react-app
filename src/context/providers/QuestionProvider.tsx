@@ -11,6 +11,7 @@ import { QuestionContextType } from "../../types/QuestionContextType";
 import apiService from "../../services/apiService";
 import { QuestionStatusType } from "../../types/QuestionStatusType";
 import { IQuestionQ } from "../../types/IQuestionQ";
+import { getUser } from "../../utils/localStorage";
 
 const QuestionContext = createContext<QuestionContextType | null>(null);
 
@@ -21,17 +22,19 @@ export function QuestionProvider({ children }: PropsType) {
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
   const [refresh, setRefresh] = useState(false);
+  const user = getUser();
   const LIMIT = 2;
 
   useEffect(() => {
+    const userId = window.location.pathname !== "/" ? String(user?.id) : "";
     apiService
-      .getAllQuestions(page, LIMIT, questionStatus)
+      .getAllQuestions(page, LIMIT, questionStatus, userId)
       .then(({ data: { questions, total } }) => {
         setQuestions(questions);
         setPageCount(Math.ceil(total[0].count / LIMIT));
       });
     setRefresh(false);
-  }, [refresh, page, questionStatus]);
+  }, [refresh, page, questionStatus, window.location.pathname]);
 
   const updateQ = useCallback(
     async (id: string, data: QuestionStatusType | IQuestionQ) => {

@@ -8,7 +8,7 @@ import QuestionCard from "./components/QuestionCard";
 import QuestionForm from "./components/QuestionForm";
 
 export default function Member() {
-  const { questions, memberPage, setStatus } = useQuestions();
+  const { questions, memberPage, setStatus, setPage } = useQuestions();
   const { user } = useUsers();
   const navigate = useNavigate();
 
@@ -17,6 +17,7 @@ export default function Member() {
       navigate("/sign_in");
     }
     setStatus("published");
+    setPage(1);
   }, [user]);
 
   return (

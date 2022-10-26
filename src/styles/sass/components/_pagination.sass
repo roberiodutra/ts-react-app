@@ -1,0 +1,24 @@
+@use '../variables'
+@use '../mixin'
+
+@mixin section
+  .pagination
+    display: flex
+    border-collapse: collapse
+    font-size: 1.4em
+    box-shadow: 0 0 1rem variables.$night-blue
+    list-style: none
+
+    li
+      margin-left: 1rem
+      &:active
+        background: none
+        font-weight: bold
+        font-size: 1.4em
+        border: none
+        color: red
+      &:focus
+        outline: none
+
+    button
+      @include mixin.button

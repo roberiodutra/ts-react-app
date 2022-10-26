@@ -24,9 +24,14 @@ class ApiService {
     });
   }
 
-  public async getAllQuestions(PAGE: number, LIMIT: number, STATUS: string) {
+  public async getAllQuestions(
+    PAGE: number,
+    LIMIT: number,
+    STATUS: string,
+    ID: string
+  ) {
     return await request(
-      `/questions?page=${PAGE}&limit=${LIMIT}&status=${STATUS}`,
+      `/questions?page=${PAGE}&limit=${LIMIT}&status=${STATUS}&userId=${ID}`,
       "get",
       {}
     );
@@ -47,10 +52,6 @@ class ApiService {
 
   public async deleteQuestion(id: string) {
     return await request(`/questions/${id}`, "delete", {});
-  }
-
-  public async getAllUsers() {
-    return await request("/user", "get", {});
   }
 
   public async getUserById(id: string) {

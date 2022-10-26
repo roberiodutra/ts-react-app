@@ -1,5 +1,4 @@
 import { SetStateAction } from "react";
-import { number } from "yup";
 import { IQuestionQ } from "./IQuestionQ";
 import { QuestionStatusType } from "./QuestionStatusType";
 import { QuestionType } from "./QuestionType";

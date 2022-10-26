@@ -8,7 +8,7 @@ import QuestionCard from "../member/components/QuestionCard";
 import QuestionForm from "../member/components/QuestionForm";
 
 export default function Admin() {
-  const { questions, memberPage, setStatus } = useQuestions();
+  const { questions, memberPage, setStatus, setPage } = useQuestions();
   const { user } = useUsers();
   const navigate = useNavigate();
 
@@ -17,6 +17,7 @@ export default function Admin() {
       navigate("/sign_in");
     }
     setStatus("pending");
+    setPage(1);
   }, [user]);
 
   return (

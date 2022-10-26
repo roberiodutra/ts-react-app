@@ -14,7 +14,7 @@ export function UserProvider({ children }: PropsType) {
     if (localUser) {
       setUser({ ...localUser });
     }
-  }, []);
+  }, [window.location.pathname]);
 
   const value = {
     user,
