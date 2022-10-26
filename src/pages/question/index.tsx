@@ -31,7 +31,7 @@ export default function Question() {
     if (id) {
       apiService.getQuestionById(id).then(({ data }) => {
         if (user?.id === data.userId || user?.role === "admin") {
-          setOwner(true);
+          setOwner((prev) => !prev);
           setQuestion(data);
         }
       });

@@ -28,19 +28,19 @@ export default function QuestionCard({
           setUser(null);
           navigate("/sign_in");
         }
-        data.role === "admin" && setAdmin(true);
+        data.role === "admin" && setAdmin((prev) => !prev);
       });
 
       apiService.getQuestionById(_id).then(({ data }) => {
         if (user.id === data.userId || user.role === "admin") {
-          setOwner(true);
+          setOwner((prev) => !prev);
         }
       });
     }
   }, [user]);
 
   const handleToggle = () => {
-    setNavbarOpen(!navbarOpen);
+    setNavbarOpen((prev) => !prev);
   };
 
   return (
