@@ -3,22 +3,36 @@
 
 @mixin section
   .pagination
-    display: flex
-    border-collapse: collapse
-    font-size: 1.4em
-    box-shadow: 0 0 1rem variables.$night-blue
-    list-style: none
+    @include mixin.container
+
+    ul
+      @include mixin.flex-center
+      padding: 1.5rem
+      font-size: 1.4em
+      border-collapse: collapse
+      box-shadow: 0 0 1rem variables.$night-blue
+      list-style: none
+      background-color: variables.$night-blue
 
     li
-      margin-left: 1rem
-      &:active
-        background: none
-        font-weight: bold
-        font-size: 1.4em
-        border: none
-        color: red
-      &:focus
-        outline: none
+      button
+        @include mixin.button
+        @include mixin.flex-center
+        box-shadow: 0 0 1rem variables.$night-blue
+        border-radius: 10%
+        margin-left: 1rem
+        background-color: variables.$bg-color
+        width: 3rem
+        height: 3rem
+        cursor: pointer
+        &:hover
+          @include mixin.hover
 
-    button
-      @include mixin.button
+      .active
+        @include mixin.hover
+
+      &:first-child button, &:last-child button
+        background: none
+        color: variables.$primary-color
+        &:hover
+          @include mixin.hover

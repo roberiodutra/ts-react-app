@@ -3,7 +3,7 @@ import { useQuestions } from "../context/providers/QuestionProvider";
 
 export default function Pagination() {
   const { page, setPage, pageCount } = useQuestions();
-  const NAV_ITEMS = 9;
+  const NAV_ITEMS = 7;
   const firstNavButton = Math.min(
     Math.max(page - (NAV_ITEMS - 1) / 2, 1),
     Math.max(pageCount - (NAV_ITEMS - 1), 1)
@@ -16,25 +16,18 @@ export default function Pagination() {
 
   return (
     <div className="pagination">
-      <button disabled={page === 1} value={page - 1} onClick={handleChange}>
-        Previous<i className="fa-regular fa-arrow-down-left"></i>
-      </button>
-      <button
-        disabled={page === pageCount}
-        value={page + 1}
-        onClick={handleChange}
-      >
-        Next<i className="fa-regular fa-arrow-up-right"></i>
-      </button>
       <ul>
+        <li>
+          <button disabled={page === 1} value={page - 1} onClick={handleChange}>
+            &#8601;
+          </button>
+        </li>
         {Array(Math.min(NAV_ITEMS, pageCount))
           .fill(null)
           .map((_, index) => (
             <li key={index}>
               <button
-                className={
-                  index === pageCount / 9 + 1 ? "pagination__item--active" : ""
-                }
+                className={page === index + firstNavButton ? "active" : ""}
                 value={index + firstNavButton}
                 onClick={handleChange}
               >
@@ -42,6 +35,15 @@ export default function Pagination() {
               </button>
             </li>
           ))}
+        <li>
+          <button
+            disabled={page === pageCount}
+            value={page + 1}
+            onClick={handleChange}
+          >
+            &#8599;
+          </button>
+        </li>
       </ul>
     </div>
   );

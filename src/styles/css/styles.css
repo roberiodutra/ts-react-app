@@ -228,31 +228,53 @@ body .navbar .actions:hover {
   color: #1f6bb6;
 }
 body .pagination {
+  max-width: 1280px;
+  padding: 1.5rem 0;
+  margin: 0 auto;
+}
+body .pagination ul {
   display: flex;
-  border-collapse: collapse;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
   font-size: 1.4em;
+  border-collapse: collapse;
   box-shadow: 0 0 1rem rgba(4, 41, 58, 0.6);
   list-style: none;
+  background-color: rgba(4, 41, 58, 0.6);
 }
-body .pagination li {
-  margin-left: 1rem;
-}
-body .pagination li:active {
-  background: none;
-  font-weight: bold;
-  font-size: 1.4em;
-  border: none;
-  color: red;
-}
-body .pagination li:focus {
-  outline: none;
-}
-body .pagination button {
+body .pagination li button {
   all: unset;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 1rem rgba(4, 41, 58, 0.6);
+  border-radius: 10%;
+  margin-left: 1rem;
+  background-color: #000;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
 }
-body .pagination button:hover {
+body .pagination li button:hover {
   color: #1f6bb6;
+}
+body .pagination li button:hover {
+  background-color: #144158;
+  color: #FFF;
+}
+body .pagination li .active {
+  background-color: #144158;
+  color: #FFF;
+}
+body .pagination li:first-child button, body .pagination li:last-child button {
+  background: none;
+  color: #FFF;
+}
+body .pagination li:first-child button:hover, body .pagination li:last-child button:hover {
+  background-color: #144158;
+  color: #FFF;
 }
 body footer {
   text-align: center;

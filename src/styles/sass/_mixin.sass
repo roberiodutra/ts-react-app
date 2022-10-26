@@ -27,13 +27,15 @@
     @content
 
 @mixin big-desktop
-  @media (min-width: 1800px) 
+  @media (min-width: 1800px)
     @content
-
 
 @mixin button
   all: unset
   cursor: pointer
   &:hover
     color: variables.$secondary-color
-  
+
+@mixin hover
+  background-color: variables.$hover-blue
+  color: variables.$primary-color
