@@ -33,13 +33,12 @@ export function QuestionProvider({ children }: PropsType) {
         setQuestions(questions);
         setPageCount(Math.ceil(total[0].count / LIMIT));
       });
-    setRefresh(false);
   }, [refresh, page, questionStatus, window.location.pathname]);
 
   const updateQ = useCallback(
     async (id: string, data: QuestionStatusType | IQuestionQ) => {
       await apiService.updateQuestion(id, data).then(() => {
-        setRefresh(true);
+        setRefresh((prev) => !prev);
       });
     },
     []
@@ -47,7 +46,7 @@ export function QuestionProvider({ children }: PropsType) {
 
   const deleteQ = useCallback(async (id: string) => {
     await apiService.deleteQuestion(id).then(() => {
-      setRefresh(true);
+      setRefresh((prev) => !prev);
     });
   }, []);
 

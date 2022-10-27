@@ -28,12 +28,12 @@ export default function QuestionCard({
           setUser(null);
           navigate("/sign_in");
         }
-        data.role === "admin" && setAdmin((prev) => !prev);
+        data.role === "admin" && setAdmin(true);
       });
 
       apiService.getQuestionById(_id).then(({ data }) => {
         if (user.id === data.userId || user.role === "admin") {
-          setOwner((prev) => !prev);
+          setOwner(true);
         }
       });
     }

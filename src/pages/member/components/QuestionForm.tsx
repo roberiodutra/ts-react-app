@@ -63,7 +63,7 @@ export default function QuestionForm() {
             </label>
             <div>{errors.answer?.message}</div>
           </div>
-          <button type="submit" onClick={() => setRefresh(true)}>
+          <button type="submit" onClick={() => setRefresh((prev) => !prev)}>
             Send
           </button>
         </fieldset>
