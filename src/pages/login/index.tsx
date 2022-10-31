@@ -91,13 +91,19 @@ export default function Login() {
               <div>{errors.password?.message}</div>
             </div>
 
-            <button type="submit">Login</button>
+            <button data-testid="login_button" type="submit">
+              Login
+            </button>
           </fieldset>
         </form>
 
         <p>Don't have an account?</p>
 
-        <button type="button" onClick={() => navigate("/sign_up")}>
+        <button
+          data-testid="register_button"
+          type="button"
+          onClick={() => navigate("/sign_up")}
+        >
           Register
         </button>
       </section>

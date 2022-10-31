@@ -10,7 +10,7 @@
     "lint": "eslint \"src/**/*.{tsx,js,jsx}\" --quiet",
     "format": "prettier --write \"src/**/*.{tsx,js,jsx}\"",
     "sass": "sass --watch src/styles/sass/styles.sass:src/styles/css/styles.css",
-    "test": "jest -i --forceExit --verbose --config=./jest.config.ts",
+    "test": "jest --watchAll -i --forceExit --verbose --config=./jest.config.ts",
     "test:coverage": "react-scripts test --coverage --watchAll=false"
   },
   "dependencies": {
