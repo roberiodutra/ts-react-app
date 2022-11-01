@@ -1,6 +1,8 @@
-import { cleanup, screen, waitFor } from "@testing-library/react";
+import { cleanup, screen } from "@testing-library/react";
 import App from "../../../App";
 import renderWithRouter from "../../utils/renderWithRouter";
+import { getUser, saveUser } from "../../../utils/localStorage";
+import { memberUser } from "../../mocks/userMock";
 
 describe("Login page tests", () => {
   const renderApp = () =>
@@ -28,5 +30,11 @@ describe("Login page tests", () => {
     await user.click(loginButton);
 
     expect(history.location.pathname).toBe("/admin");
+  });
+
+  it("Check if logged user redirects", async () => {
+    saveUser(memberUser);
+    const { history } = renderApp();
+    expect(history.location.pathname).toBe("/member");
   });
 });

@@ -1,7 +1,7 @@
 import { rest } from "msw";
-import { getUser } from "../../utils/localStorage";
+import { getUser } from "../../../utils/localStorage";
 import questionMock from "../questionMock";
-import user from "../userMock";
+import { adminUser, memberUser } from "../userMock";
 
 const BASE_URL = "http://localhost:3001";
 const code = {
@@ -11,7 +11,7 @@ const code = {
 
 const handlers = [
   rest.post(`${BASE_URL}/sign_in`, (_req, res, ctx) => {
-    return res(ctx.status(code.OK), ctx.json(user));
+    return res(ctx.status(code.OK), ctx.json(adminUser));
   }),
 
   rest.get(`${BASE_URL}/questions`, (req, res, ctx) => {

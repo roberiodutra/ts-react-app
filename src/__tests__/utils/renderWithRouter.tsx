@@ -1,7 +1,7 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MemoryRouter, Router } from "react-router-dom";
+import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 
 interface RenderWithRouterProps {
