@@ -3,9 +3,9 @@ export default {
   collectCoverage: true,
   coverageDirectory: "coverage",
   coverageProvider: "v8",
-  testRegex: "./*\\.test\\.tsx$",
+  testRegex: "./*\\.test\\.(t|j)sx?$",
   testEnvironment: "jsdom",
-  setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
+  setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
   transform: {
     "^.+\\.(t|j)sx?$": [
       "@swc/jest",
