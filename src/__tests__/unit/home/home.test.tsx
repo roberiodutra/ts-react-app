@@ -1,4 +1,4 @@
-import { cleanup, screen } from "@testing-library/react";
+import { cleanup } from "@testing-library/react";
 import App from "../../../App";
 import renderWithRouter from "../../utils/renderWithRouter";
 import questionMock from "../../mocks/questionMock";
@@ -9,10 +9,10 @@ describe("Home page tests", () => {
   afterEach(cleanup);
 
   it("Check screen elements", async () => {
-    renderApp();
-    expect(screen.getByText("Questions")).toBeInTheDocument();
-    expect(screen.getByText("Answers")).toBeInTheDocument();
-    expect(screen.getByText("Author")).toBeInTheDocument();
+    const { getByText } = renderApp();
+    expect(getByText("Questions")).toBeInTheDocument();
+    expect(getByText("Answers")).toBeInTheDocument();
+    expect(getByText("Author")).toBeInTheDocument();
   });
 
   it("Check home page items", async () => {

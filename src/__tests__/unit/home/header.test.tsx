@@ -1,4 +1,4 @@
-import { cleanup, screen, waitFor } from "@testing-library/react";
+import { cleanup, screen } from "@testing-library/react";
 import App from "../../../App";
 import renderWithRouter from "../../utils/renderWithRouter";
 import { saveUser } from "../../../utils/localStorage";
