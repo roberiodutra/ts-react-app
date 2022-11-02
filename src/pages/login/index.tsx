@@ -67,7 +67,7 @@ export default function Login() {
               <input
                 className="form-input"
                 id="email"
-                type="email"
+                type="text"
                 {...register("email")}
                 required
               />

@@ -46,7 +46,7 @@ describe("Login page tests", () => {
   it("Login with wrong data trigger an error", async () => {
     server.use(
       rest.post(`${BASE_URL}/sign_in`, async (_req, res, ctx) => {
-        return res(ctx.status(404));
+        return res.once(ctx.status(code.NOT_FOUND));
       })
     );
     const { user, container } = renderApp();
@@ -59,5 +59,27 @@ describe("Login page tests", () => {
     await user.click(loginButton);
 
     expect(await screen.findByText("User not found")).toBeInTheDocument();
+  });
+
+  it("Login with wrong email or password format", async () => {
+    const { user, container } = renderApp();
+    const loginButton = screen.getByTestId("login_button");
+    const emailInput = container.querySelector("#email") as Element;
+    const passwordInput = container.querySelector("#password") as Element;
+
+    await user.type(emailInput, "wrong@");
+    await user.type(passwordInput, "123456");
+    await user.click(loginButton);
+    expect(await screen.findByText("Email is invalid")).toBeInTheDocument();
+
+    await user.clear(emailInput);
+    await user.clear(passwordInput);
+
+    await user.type(emailInput, "email@email.com");
+    await user.type(passwordInput, "123");
+    await user.click(loginButton);
+    expect(
+      await screen.findByText("Password must be at least 6 characters")
+    ).toBeInTheDocument();
   });
 });
