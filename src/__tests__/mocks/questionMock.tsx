@@ -2,7 +2,7 @@ import { QuestionType } from "../../types/QuestionType";
 
 const copies = (obj: QuestionType) => {
   const objs = [];
-  for (let i = 0; i < 2; i += 1) {
+  for (let i = 0; i < 20; i += 1) {
     objs.push({ ...obj, _id: i });
   }
   return objs;
@@ -29,7 +29,7 @@ const questionMock = {
   ],
   total: [
     {
-      count: 1,
+      count: 21,
     },
   ],
 };
