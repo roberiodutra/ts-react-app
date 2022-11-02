@@ -16,15 +16,18 @@ describe("Home page tests", () => {
   });
 
   it("Check home page items", async () => {
-    const { findByText } = renderApp();
+    const { findAllByRole, findAllByText } = renderApp();
     await Promise.all(
       questionMock.questions.map(async (element) => {
-        expect(await findByText(element.question)).toBeInTheDocument();
-        expect(await findByText(element.question)).toHaveAttribute(
-          "href",
-          element.answer
-        );
-        expect(await findByText(element.author)).toBeInTheDocument();
+        const allQuestions = await findAllByRole("link", {
+          name: element.question,
+        });
+        const allAuthors = await findAllByText(element.author);
+        allQuestions.every((question) => {
+          expect(question).toBeInTheDocument();
+          expect(question).toHaveAttribute("href", element.answer);
+        });
+        allAuthors.every((author) => expect(author).toBeInTheDocument());
       })
     );
   });

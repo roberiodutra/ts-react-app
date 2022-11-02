@@ -4,9 +4,6 @@ import renderWithRouter from "../../utils/renderWithRouter";
 import { saveUser } from "../../../utils/localStorage";
 import { adminUser, memberUser } from "../../mocks/userMock";
 
-const BASE_URL = "http://localhost:3001";
-const code = { OK: 200 };
-
 describe("Header tests", () => {
   const renderApp = (route: string) => renderWithRouter(<App />, { route });
 

@@ -1,3 +1,13 @@
+import { QuestionType } from "../../types/QuestionType";
+
+const copies = (obj: QuestionType) => {
+  const objs = [];
+  for (let i = 0; i < 2; i += 1) {
+    objs.push({ ...obj, _id: i });
+  }
+  return objs;
+};
+
 const questionMock = {
   questions: [
     {
@@ -8,14 +18,14 @@ const questionMock = {
       answer: "https://stacovesrflow.com/questions/61634973/",
       status: "pending",
     },
-    {
+    ...copies({
       _id: "6355da1a603sf6d6sdg450c01",
       userId: "as5d6asdsdjhjh344342",
       author: "Tester Member",
       question: "What is Javascript?",
       answer: "https://stacovesrflow.com/questions/61634973/",
       status: "published",
-    },
+    }),
   ],
   total: [
     {
