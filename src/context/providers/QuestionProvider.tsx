@@ -23,7 +23,7 @@ export function QuestionProvider({ children }: PropsType) {
   const [pageCount, setPageCount] = useState(1);
   const [refresh, setRefresh] = useState(false);
   const user = getUser();
-  const LIMIT = 2;
+  const LIMIT = 10;
 
   useEffect(() => {
     const userId = window.location.pathname !== "/" ? String(user?.id) : "";
