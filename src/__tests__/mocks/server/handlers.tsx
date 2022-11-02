@@ -1,7 +1,7 @@
 import { rest } from "msw";
 import { getUser } from "../../../utils/localStorage";
 import questionMock from "../questionMock";
-import { adminUser, memberUser } from "../userMock";
+import { adminUser } from "../userMock";
 
 const BASE_URL = "http://localhost:3001";
 const code = {
@@ -14,14 +14,16 @@ const handlers = [
     return res(ctx.status(code.OK), ctx.json(adminUser));
   }),
 
-  rest.get(`${BASE_URL}/questions`, (req, res, ctx) => {
-    const matches = req.url.searchParams.get("page");
-
-    if (!matches) {
-      return;
-    }
-
+  rest.get(`${BASE_URL}/questions`, (_req, res, ctx) => {
     return res(ctx.status(code.OK), ctx.json(questionMock));
+  }),
+
+  rest.get(`${BASE_URL}/questions/:id`, (_req, res, ctx) => {
+    return res(ctx.status(code.OK), ctx.json(questionMock));
+  }),
+
+  rest.get(`${BASE_URL}/user/:id`, (_req, res, ctx) => {
+    return res(ctx.status(code.OK), ctx.json(getUser()));
   }),
 ];
 

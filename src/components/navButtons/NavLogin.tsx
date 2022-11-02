@@ -7,8 +7,15 @@ export default function NavLogin() {
 
   return (
     <div>
-      {!user && (
+      {!user ? (
         <div>
+          <button
+            className="navbar-buttons"
+            type="button"
+            onClick={() => navigate("/")}
+          >
+            Home
+          </button>
           <button
             className="navbar-buttons"
             type="button"
@@ -24,7 +31,7 @@ export default function NavLogin() {
             Login
           </button>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

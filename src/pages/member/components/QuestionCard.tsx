@@ -28,7 +28,7 @@ export default function QuestionCard({
           setUser(null);
           navigate("/sign_in");
         }
-        data.role === "admin" && setAdmin(true);
+        data.role === "admin" ? setAdmin(true) : null;
       });
 
       apiService.getQuestionById(_id).then(({ data }) => {
@@ -53,7 +53,7 @@ export default function QuestionCard({
             </a>
           }
         </td>
-        {path !== "/" && (
+        {path !== "/" ? (
           <td>
             <nav className="navbar">
               <button className="actions" onClick={handleToggle}>
@@ -64,7 +64,7 @@ export default function QuestionCard({
                 )}
               </button>
               <div className={`actions-menu ${navbarOpen ? " show-menu" : ""}`}>
-                {admin && (
+                {admin ? (
                   <div
                     className="actions"
                     hidden={status !== "pending"}
@@ -72,8 +72,8 @@ export default function QuestionCard({
                   >
                     Publish
                   </div>
-                )}
-                {owner && (
+                ) : null}
+                {owner ? (
                   <div>
                     <div
                       className="actions"
@@ -85,11 +85,11 @@ export default function QuestionCard({
                       Delete
                     </div>
                   </div>
-                )}
+                ) : null}
               </div>
             </nav>
           </td>
-        )}
+        ) : null}
         <td>
           <img
             src={getFavicon(answer)}

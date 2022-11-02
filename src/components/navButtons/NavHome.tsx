@@ -11,7 +11,7 @@ export default function NavHome() {
 
   return (
     <div>
-      {user && (path === "/" || path.includes("question")) && (
+      {user && (path === "/" || path.includes("question")) ? (
         <div>
           <button
             className="navbar-buttons"
@@ -21,7 +21,7 @@ export default function NavHome() {
             Member Area
           </button>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

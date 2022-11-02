@@ -43,7 +43,7 @@ export default function Admin() {
             ))}
         </table>
       )}
-      {memberPage === "myQuestions" && <Pagination />}
+      {memberPage === "myQuestions" ? <Pagination /> : null}
       <Footer />
     </main>
   );

@@ -16,7 +16,7 @@ export default function NavMemberArea() {
 
   return (
     <div>
-      {path === navOptions[role] && (
+      {path === navOptions[role] ? (
         <div>
           <button
             className="navbar-buttons"
@@ -25,7 +25,7 @@ export default function NavMemberArea() {
           >
             Home
           </button>
-          {memberPage === navMember.add && (
+          {memberPage === navMember.add ? (
             <button
               className="navbar-buttons"
               type="button"
@@ -33,8 +33,8 @@ export default function NavMemberArea() {
             >
               {titleByUserRole}
             </button>
-          )}
-          {memberPage === navMember.own && (
+          ) : null}
+          {memberPage === navMember.own ? (
             <button
               className="navbar-buttons"
               type="button"
@@ -42,7 +42,7 @@ export default function NavMemberArea() {
             >
               Add a Question
             </button>
-          )}
+          ) : null}
           <button
             type="button"
             onClick={() => {
@@ -54,7 +54,7 @@ export default function NavMemberArea() {
             Logout
           </button>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

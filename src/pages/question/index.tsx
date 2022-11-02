@@ -49,7 +49,7 @@ export default function Question() {
   return (
     <div>
       <Header />
-      {isOwner && (
+      {isOwner ? (
         <div className="form">
           <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset>
@@ -89,7 +89,7 @@ export default function Question() {
             </fieldset>
           </form>
         </div>
-      )}
+      ) : null}
       <Footer />
     </div>
   );
