@@ -1,6 +1,7 @@
 const adminUser = {
   id: "635f6c84072ef987f2dc3e05",
   email: "admin@email.com",
+  password: "123456",
   role: "admin",
   fullName: "Admin Tester",
   token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",

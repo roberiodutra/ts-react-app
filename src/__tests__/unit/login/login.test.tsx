@@ -1,7 +1,7 @@
-import { cleanup, screen, waitFor } from "@testing-library/react";
+import { cleanup, screen } from "@testing-library/react";
 import App from "../../../App";
 import renderWithRouter from "../../utils/renderWithRouter";
-import { getUser, saveUser } from "../../../utils/localStorage";
+import { saveUser } from "../../../utils/localStorage";
 import { memberUser } from "../../mocks/userMock";
 import server from "../../mocks/server";
 import { rest } from "msw";
@@ -81,5 +81,13 @@ describe("Login page tests", () => {
     expect(
       await screen.findByText("Password must be at least 6 characters")
     ).toBeInTheDocument();
+  });
+
+  it("Register button redirects", async () => {
+    const { user, history } = renderApp();
+    const registerButton = screen.getByRole("button", { name: /register/i });
+
+    await user.click(registerButton);
+    expect(history.location.pathname).toBe("/sign_up");
   });
 });

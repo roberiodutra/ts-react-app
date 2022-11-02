@@ -99,11 +99,7 @@ export default function Login() {
 
         <p>Don't have an account?</p>
 
-        <button
-          data-testid="register_button"
-          type="button"
-          onClick={() => navigate("/sign_up")}
-        >
+        <button type="button" onClick={() => navigate("/sign_up")}>
           Register
         </button>
       </section>
