@@ -1,4 +1,11 @@
-import { QuestionType } from "../../types/QuestionType";
+type QuestionType = {
+  _id: string;
+  userId: string;
+  author: string;
+  question: string;
+  answer: string;
+  status: string;
+};
 
 const copies = (obj: QuestionType) => {
   const objs = [];
