@@ -1,7 +1,6 @@
 import { cleanup } from "@testing-library/react";
 import App from "../../../App";
 import renderWithRouter from "../../utils/renderWithRouter";
-import questionMock from "../../mocks/questionMock";
 
 describe("Pagination tests on Home page", () => {
   const renderApp = () => renderWithRouter(<App />);
@@ -28,5 +27,6 @@ describe("Pagination tests on Home page", () => {
 
     await user.click(await findByRole("button", { name: "3" }));
     await ActiveButton("3");
+    expect(nextButton).toBeDisabled();
   });
 });
