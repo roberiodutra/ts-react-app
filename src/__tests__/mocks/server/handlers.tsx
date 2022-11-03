@@ -15,7 +15,7 @@ const handlers = [
   }),
 
   rest.post(`${BASE_URL}/sign_up`, (_req, res, ctx) => {
-    return res(ctx.status(code.OK), ctx.json(memberUser));
+    return res(ctx.status(code.CREATED), ctx.json(memberUser));
   }),
 
   rest.get(`${BASE_URL}/questions`, (_req, res, ctx) => {
@@ -31,10 +31,6 @@ const handlers = [
   }),
 
   rest.put(`${BASE_URL}/questions/:id`, (_req, res, ctx) => {
-    return res(ctx.status(code.OK));
-  }),
-
-  rest.delete(`${BASE_URL}/questions/:id`, (_req, res, ctx) => {
     return res(ctx.status(code.OK));
   }),
 

@@ -26,9 +26,8 @@ export function QuestionProvider({ children }: PropsType) {
   const LIMIT = 10;
 
   useEffect(() => {
-    const userId = window.location.pathname !== "/" ? String(user?.id) : "";
     apiService
-      .getAllQuestions(page, LIMIT, questionStatus, userId)
+      .getAllQuestions(page, LIMIT, questionStatus, String(user?.id))
       .then(({ data: { questions, total } }) => {
         setQuestions(questions);
         setPageCount(Math.ceil(total[0].count / LIMIT));

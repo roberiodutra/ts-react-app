@@ -98,4 +98,9 @@ describe("Admin functions", () => {
       expect(history.location.pathname).toBe("/sign_in");
     });
   });
+
+  it("Logged out user redirects", async () => {
+    const { history } = renderApp();
+    expect(history.location.pathname).toBe("/sign_in");
+  });
 });
