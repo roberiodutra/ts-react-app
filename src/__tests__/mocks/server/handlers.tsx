@@ -22,6 +22,10 @@ const handlers = [
     return res(ctx.status(code.OK), ctx.json(questionMock));
   }),
 
+  rest.post(`${BASE_URL}/questions`, (_req, res, ctx) => {
+    return res(ctx.status(code.OK));
+  }),
+
   rest.get(`${BASE_URL}/questions/:id`, (_req, res, ctx) => {
     return res(ctx.status(code.OK), ctx.json(questionMock));
   }),
