@@ -56,7 +56,11 @@ export default function QuestionCard({
         {path !== "/" ? (
           <td>
             <nav className="navbar">
-              <button className="actions" onClick={handleToggle}>
+              <button
+                data-testid="gear-actions"
+                className="actions"
+                onClick={handleToggle}
+              >
                 {navbarOpen ? (
                   <i className="fa-solid fa-x"></i>
                 ) : (
@@ -65,25 +69,25 @@ export default function QuestionCard({
               </button>
               <div className={`actions-menu ${navbarOpen ? " show-menu" : ""}`}>
                 {admin ? (
-                  <div
+                  <button
                     className="actions"
                     hidden={status !== "pending"}
                     onClick={() => updateQ(_id, { status: "published" })}
                   >
                     Publish
-                  </div>
+                  </button>
                 ) : null}
                 {owner ? (
                   <div>
-                    <div
+                    <button
                       className="actions"
                       onClick={() => navigate(`/question/${_id}`)}
                     >
                       Edit
-                    </div>
-                    <div className="actions" onClick={() => deleteQ(_id)}>
+                    </button>
+                    <button className="actions" onClick={() => deleteQ(_id)}>
                       Delete
-                    </div>
+                    </button>
                   </div>
                 ) : null}
               </div>

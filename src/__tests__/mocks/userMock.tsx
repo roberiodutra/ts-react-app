@@ -16,4 +16,13 @@ const memberUser = {
   token: "7QX4i6Tr70BDIaSzcV6wX8TvCKQ9Rn1M",
 };
 
-export { adminUser, memberUser };
+const invalidUser = {
+  id: "999999999999999999999",
+  email: "invalid@email.com",
+  password: "123456",
+  role: "admin",
+  fullName: "Admin Tester",
+  token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+};
+
+export { adminUser, memberUser, invalidUser };

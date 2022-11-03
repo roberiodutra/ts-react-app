@@ -86,7 +86,7 @@ describe("Question form tests", () => {
     expect(history.location.pathname).toBe("/admin");
   });
 
-  it(" Error when editing with invalid data", async () => {
+  it("Error when editing with invalid data", async () => {
     saveUser(adminUser);
     const { user } = renderApp("/question/6355da1a603sf6d6sdg450c011");
     const questionLabel = await screen.findByLabelText("Question");

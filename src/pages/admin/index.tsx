@@ -4,13 +4,13 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Pagination from "../../components/Pagination";
 import { useQuestions } from "../../context/providers/QuestionProvider";
-import { useUsers } from "../../context/providers/UserProvider";
+import { getUser } from "../../utils/localStorage";
 import QuestionCard from "../member/components/QuestionCard";
 import QuestionForm from "../member/components/QuestionForm";
 
 export default function Admin() {
   const { questions, memberPage, setStatus, setPage } = useQuestions();
-  const { user } = useUsers();
+  const user = getUser();
   const navigate = useNavigate();
 
   useEffect(() => {
