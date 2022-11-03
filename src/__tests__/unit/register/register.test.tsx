@@ -1,7 +1,6 @@
 import { cleanup, screen } from "@testing-library/react";
 import App from "../../../App";
 import renderWithRouter from "../../utils/renderWithRouter";
-import { saveUser } from "../../../utils/localStorage";
 import { memberUser } from "../../mocks/userMock";
 import server from "../../mocks/server";
 import { rest } from "msw";
