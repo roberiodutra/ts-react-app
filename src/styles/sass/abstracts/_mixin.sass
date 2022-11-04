@@ -12,7 +12,20 @@
 
 @mixin phone-only
   @media (max-width: 479px)
+    padding: 0.5rem
     @content
+    thead,
+    tbody,
+    th,
+    td,
+    tr
+      display: block
+    thead tr
+      position: absolute
+      top: -9999px
+      left: -9999px
+    td:nth-last-child(1), td:nth-last-child(2)
+      display: none
 
 @mixin tablet-portrait
   @media (min-width: 480px)
