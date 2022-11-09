@@ -89,62 +89,12 @@ $ npm run dev
 
 ### Author
 
-<div
-  style="display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border: 1px solid DarkSlateGray;
-    background: #0d1117"
->
-
-  <section style="grid-row: 1 / 5;
-      grid-column: 1 / 3;
-      margin-left: 10px"
-  >
-    <img
-      style="margin-top: 20px;
-        border-radius: 20%;
-        border: 1px solid DarkSlateGray"
-      src="https://avatars.githubusercontent.com/u/92614697?v=4" width="150px;"
-      alt="Robério Dutra Avatar"
-    >
-    <h4 style="color: #CDBE70;
-      margin-left: 25px"
-    >
-      Robério Dutra 😁
-    </h4>
-  </section>
-
-  <section
-    style="margin: 20px;
-      grid-row: 1 / 3;
-      grid-column: 3 / 3"
-  >
-    <a
-      style="float: right"
-      href="https://www.linkedin.com/in/roberiodutra/"
-      rel="nofollow"
-    >
-      <img
-        src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
-        alt="Linkedin Badge"
-        data-canonical-src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
-      >
-    </a>
-  </section>
-
-  <section
-    style="grid-row: 4 / 5;
-      grid-column: 3 / 3;
-      color: #CDBE70"
-  >
-    <span style="float: right;
-      margin: 0 20px"
-    >
-      Made with ❤️ and JavaScript.
-    </span>
-  </section>
-
-</div>
+<a 
+  href="https://www.linkedin.com/in/roberiodutra/"
+  rel="nofollow">
+<img 
+    src="src/assets/author-github-readme.jpg">
+</a>
 
 <br></br>
 
