@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/conda/l/conda-forge/setuptools?color=036b52&logo=ghost&logoColor=036b52">
 </p>
 
-<br></br>
+<br>
 
 <h2 align="center">
 
@@ -18,7 +18,7 @@
 
 <p align="center">🚀 This APP is part of the DevHelper project, its Backend can be found here » <h2 align="center"><a href="https://github.com/roberiodutra/ts-node-api">TS-NODE-API</a></h2></p>
 
-<br></br>
+<br>
 
 <h4 align="center">
 	🚧  TS-React-APP 🚀 under construction...  🚧
@@ -31,7 +31,7 @@
  <a href="#author">Author</a>
 </p>
 
-<br></br>
+<br>
 
 ### Features
 
@@ -44,7 +44,7 @@
 - [x] API mocked with Mock Service Worker(MSW).
 - [x] Style made entirely with SASS.
 
-<br></br>
+<br>
 
 ### Technologies
 
@@ -61,7 +61,7 @@ The following tools were used in building this APP:
 - [Vite]()
 - [SWC]()
 
-<br></br>
+<br>
 
 ### Prerequisites
 
@@ -87,6 +87,8 @@ $ npm run dev
 # The server will start on port:5173 - access <http://127.0.0.1:5173/>
 ```
 
+<br>
+
 ### Author
 
 <a 
@@ -96,7 +98,7 @@ $ npm run dev
     src="src/assets/author-github.jpg">
 </a>
 
-<br></br>
+<br>
 
 📝 License
 
