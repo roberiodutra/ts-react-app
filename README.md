@@ -93,7 +93,7 @@ $ npm run dev
   href="https://www.linkedin.com/in/roberiodutra/"
   rel="nofollow">
 <img 
-    src="src/assets/author-github-readme.jpg">
+    src="src/assets/author-github.jpg">
 </a>
 
 <br></br>
