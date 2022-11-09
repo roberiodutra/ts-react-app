@@ -16,7 +16,7 @@
 
 </h2>
 
-<p align="center">🚀 This APP is part of the DevHelper project, its Backend can be found here » <h2 align="center"><a href="https://roberio.dev/meme-timer/">TS-NODE-API</a></h2></p>
+<p align="center">🚀 This APP is part of the DevHelper project, its Backend can be found here » <h2 align="center"><a href="https://github.com/roberiodutra/ts-node-api">TS-NODE-API</a></h2></p>
 
 <br></br>
 
@@ -26,8 +26,8 @@
 
 <p align="center">
  <a href="#features">Features</a> •
- <a href="#prerequisites">Prerequisites</a> •
  <a href="#technologies">Technologies</a> •
+ <a href="#prerequisites">Prerequisites</a> •
  <a href="#author">Author</a>
 </p>
 
@@ -43,6 +43,23 @@
 - [x] 100% test coverage.
 - [x] API mocked with Mock Service Worker(MSW).
 - [x] Style made entirely with SASS.
+
+<br></br>
+
+### Technologies
+
+The following tools were used in building this APP:
+
+- [Reactjs]()
+- [Javascript]()
+- [TypeScript]()
+- [SASS]()
+- [Jest]()
+- [Mock Service Worker]()
+- [Yup]()
+- [Node.js](https://nodejs.org/en/)
+- [Vite]()
+- [SWC]()
 
 <br></br>
 
@@ -69,23 +86,6 @@ $ npm run dev
 
 # The server will start on port:5173 - access <http://127.0.0.1:5173/>
 ```
-
-### Technologies
-
-The following tools were used in building this APP:
-
-- [Reactjs]()
-- [Javascript]()
-- [TypeScript]()
-- [SASS]()
-- [Jest]()
-- [Mock Service Worker]()
-- [Yup]()
-- [Node.js](https://nodejs.org/en/)
-- [Vite]()
-- [SWC]()
-
-<br></br>
 
 ### Author
 
